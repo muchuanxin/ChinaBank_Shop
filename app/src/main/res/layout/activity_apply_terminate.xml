@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.xd.aselab.chinabank_shop.activity.shop.ApplyTerminateActivity">
+
+    <RelativeLayout
+        android:id="@+id/apply_terminate_status_background"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/navigation_bg">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/apply_terminate_nav_background"
+        android:layout_below="@id/apply_terminate_status_background"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/navigation_bg">
+        <RelativeLayout
+            android:id="@+id/apply_terminate_back_btn"
+            android:layout_width="45dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/back_btn_bg"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textSize="22dp"
+            android:text="申请解约"/>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/reson_of_terminate"
+        android:layout_below="@id/apply_terminate_nav_background"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="160.0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:inputType="textMultiLine"
+        android:gravity="top|left"
+        android:singleLine="true"
+        android:background="@drawable/edit_shape"
+        android:hint=" 请输入解约缘由"/>
+
+    <Button
+        android:id="@+id/tijiao_reson"
+        android:layout_below="@id/reson_of_terminate"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="提交"
+        android:textSize="20dp"
+        android:textColor="#fff"
+        android:background="@drawable/login_btn_bg"/>
+
+
+</RelativeLayout>

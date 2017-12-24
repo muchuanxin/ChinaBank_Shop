@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/main_bg_new"
+
+    tools:context="com.xd.aselab.chinabank_shop.activity.shop.ShopRegisterActivity">
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="65dp"
+       android:background="@drawable/navigation_bg"
+       android:orientation="horizontal">
+
+       <Button
+           android:id="@+id/s_back_to_login"
+           android:layout_alignParentBottom="true"
+           android:layout_marginBottom="5dp"
+           android:layout_marginLeft="15dp"
+           android:layout_width="30dp"
+           android:layout_height="30dp"
+           android:background="@drawable/back_btn_bg"
+           android:layout_centerVertical="true"/>
+
+       <TextView
+           android:id="@+id/textViewLabel"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+           android:layout_centerVertical="true"
+           android:textColor="#fff"
+           android:textSize="20dp"
+           android:layout_alignParentBottom="true"
+           android:gravity="center"
+           android:text="店铺注册"/>
+
+       </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#222"
+            android:inputType="text"
+            android:layout_gravity="center"
+            android:maxEms="10"
+            android:text="账号："/>
+
+        <TextView
+            android:id="@+id/shopkeeperId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#222"
+            android:text="11223344"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#222"
+            android:inputType="text"
+            android:text="密码："/>
+
+        <EditText
+            android:id="@+id/userpsw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#222"
+            android:inputType="text"
+            android:maxEms="10"
+            android:text="店铺名称："/>
+
+        <EditText
+            android:id="@+id/shopname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#222"
+            android:inputType="text"
+            android:maxEms="10"
+            android:text="经理工号："/>
+
+        <EditText
+            android:id="@+id/managerJobID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:editable="false"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#222"
+            android:inputType="text"
+            android:maxEms="10"
+            android:text="手机号："/>
+
+        <EditText
+            android:id="@+id/shoptel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#222"
+            android:inputType="text"
+            android:maxEms="10"
+            android:text="店铺地址："/>
+
+        <EditText
+            android:id="@+id/shopAddr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#222"
+            android:inputType="text"
+            android:text="店铺类型："/>
+
+         <Spinner
+             android:id="@+id/shopTypeSpinner"
+             android:visibility="gone"
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent" />
+        <TextView
+            android:id="@+id/shopTypeSelect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/backgroundtimepicker"
+            android:gravity="center"
+            android:textSize="18dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnShopRegister"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15.0dip"
+            android:layout_marginRight="15.0dip"
+            android:background="@drawable/login_btn_bg"
+            android:singleLine="true"
+            android:textColor="#fff"
+            android:textSize="20.0dp"
+            android:text="注册"/>
+    </LinearLayout>
+
+</LinearLayout>

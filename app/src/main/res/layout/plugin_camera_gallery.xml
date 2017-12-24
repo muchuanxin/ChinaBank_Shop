@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/black_bar">
+
+	<RelativeLayout
+		android:id="@+id/headview"
+		android:layout_width="fill_parent"
+		android:layout_height="65dp"
+		android:background="@color/black_alpha_fifty"
+		android:gravity="center_vertical">
+		<RelativeLayout
+			android:id="@+id/gallery_back"
+			android:layout_width="50dp"
+			android:layout_height="match_parent">
+
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="28dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginTop="20dp"
+				android:src="@drawable/back_btn_bg"/>
+
+		</RelativeLayout>
+		<!--<ImageButton
+           android:id="@+id/gallery_back"
+           android:layout_width="wrap_content"
+           android:layout_height="match_parent"
+           android:layout_marginLeft="5dp"
+           android:layout_alignParentLeft="true"
+           android:layout_centerVertical="true"
+           android:background="@null"
+           android:src="@drawable/back_btn_bg" />-->
+		<Button
+			android:textSize="14sp"
+			android:textColor="#fff"
+			android:id="@+id/gallery_del"
+			android:background="@drawable/plugin_camera_del_state"
+			android:layout_alignParentRight="true"
+			android:layout_marginTop="12dp"
+			android:layout_width="50dp"
+			android:layout_height="50dp"
+
+			/>
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:id="@+id/bottom_layout"
+		android:layout_width="match_parent"
+		android:layout_height="45dp"
+		android:layout_alignParentBottom="true"
+		android:background="@drawable/black_bar" >
+		<TextView
+			android:id="@+id/send_button"
+			android:layout_width="40dp"
+			android:layout_height="match_parent"
+			android:text="完成"
+			android:layout_marginRight="5dp"
+			android:gravity="center"
+			android:textSize="16sp"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:textColor="@color/orange"/>
+		<LinearLayout
+			android:id="@+id/ll_number_of_images1"
+			android:layout_toLeftOf="@id/send_button"
+			android:layout_marginRight="5dp"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+			android:layout_centerVertical="true"
+			android:background="@drawable/dot_red" >
+			<TextView
+				android:id="@+id/numberOfImages1"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:text="2"
+				android:layout_marginTop="-3dp"
+				android:textColor="@color/white"
+				android:gravity="center"
+				android:textStyle="bold"/>
+		</LinearLayout>
+	</RelativeLayout>
+
+	<com.xd.aselab.chinabank_shop.photo.zoom.ViewPagerFixed
+		android:id="@+id/gallery01"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_above="@id/bottom_layout"
+		android:layout_below="@id/headview"
+		android:layout_centerHorizontal="true"
+		android:background="@color/black"
+		android:unselectedAlpha="1">
+	</com.xd.aselab.chinabank_shop.photo.zoom.ViewPagerFixed>
+
+</RelativeLayout>
+  

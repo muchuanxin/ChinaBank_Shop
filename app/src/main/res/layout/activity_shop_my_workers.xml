@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.xd.aselab.chinabank_shop.activity.shop.ShopMyWorkers">
+
+    <RelativeLayout
+        android:id="@+id/myPerfor_status_background"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/navigation_bg">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/myPer_nav_background"
+        android:layout_below="@id/myPerfor_status_background"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/navigation_bg">
+        <RelativeLayout
+            android:id="@+id/shopkeeper_performance_back_btn"
+            android:layout_width="45dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/back_btn_bg"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textSize="22dp"
+            android:text="我的业绩"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/dataSelect"
+        android:layout_below="@id/myPer_nav_background"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:gravity="center"
+            android:textSize="18dp"
+            android:text="业绩时间范围："/>
+
+        <Spinner
+            android:id="@+id/shop_timeHorizonSpinner"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginRight="30dp"
+            android:textColor="#3A3A3A"
+            android:background="@drawable/backgroundtimepicker"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:id="@+id/shop_time_select"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/backgroundtimepicker"
+            android:textColor="#3A3A3A"
+            android:text="最近一周"
+            android:gravity="center"
+            android:textSize="18dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/my_workers_total_cards"
+        android:layout_below="@id/dataSelect"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:visibility="gone"
+        android:textColor="#B22222" />
+
+    <TextView
+        android:id="@+id/my_workers_total_scan_number"
+        android:layout_below="@id/my_workers_total_cards"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textSize="18dp"
+        android:textColor="#B22222" />
+
+    <ListView
+        android:id="@+id/my_workers_ls_view"
+        android:layout_below="@id/my_workers_total_scan_number"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="10dp">
+    </ListView>
+
+
+</RelativeLayout>

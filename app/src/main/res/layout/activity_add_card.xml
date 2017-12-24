@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.xd.aselab.chinabank_shop.activity.shop.AddCardActivity">
+
+    <RelativeLayout
+        android:id="@+id/shopkeeper_addCard_status_bg"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/navigation_bg">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/shopkeeper_addCard_nav_bg"
+        android:layout_below="@id/shopkeeper_addCard_status_bg"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/navigation_bg">
+        <RelativeLayout
+            android:id="@+id/shopkeeper_addCard_back_btn"
+            android:layout_width="45dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/back_btn_bg"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textSize="22dp"
+            android:text="办卡验证"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/verifyCode_row"
+        android:layout_below="@id/shopkeeper_addCard_nav_bg"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:text="验证码:"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:hint="请输入验证码"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/addCardbtn"
+        android:layout_below="@id/verifyCode_row"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="20dp"
+        android:textColor="#fff"
+        android:text="提交"
+        android:background="@drawable/login_btn_bg"/>
+
+</RelativeLayout>

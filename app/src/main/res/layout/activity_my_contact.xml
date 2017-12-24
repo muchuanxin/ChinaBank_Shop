@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.xd.aselab.chinabank_shop.activity.publicChinaBankShop.MyContactActivity">
+
+    <RelativeLayout
+        android:id="@+id/contact_status_background"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/navigation_bg">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/contact_nav_background"
+        android:layout_below="@id/contact_status_background"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/navigation_bg">
+        <RelativeLayout
+            android:id="@+id/my_cont_back_btn"
+            android:layout_width="45dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/back_btn_bg"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textSize="22dp"
+            android:text="联系人信息"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/my_cont_manager_label"
+        android:layout_below="@id/contact_nav_background"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:text="经理"/>
+
+    <TextView
+        android:id="@+id/my_cont_manager_txt"
+        android:layout_toRightOf="@id/my_cont_manager_label"
+        android:layout_alignBottom="@id/my_cont_manager_label"
+        android:layout_marginLeft="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/my_cont_tel_label"
+        android:layout_below="@id/my_cont_manager_label"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:text="电话"/>
+
+    <TextView
+        android:id="@+id/my_cont_tel_txt"
+        android:layout_toRightOf="@id/my_cont_tel_label"
+        android:layout_alignBottom="@id/my_cont_tel_label"
+        android:layout_marginLeft="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textSize="20dp"/>
+
+</RelativeLayout>

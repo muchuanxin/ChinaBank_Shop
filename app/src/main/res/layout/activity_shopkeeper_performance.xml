@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.xd.aselab.chinabank_shop.activity.shop.ShopkeeperPerformanceActivity">
+
+    <RelativeLayout
+        android:id="@+id/myPerfor_status_background"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/navigation_bg">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/myPer_nav_background"
+        android:layout_below="@id/myPerfor_status_background"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/navigation_bg">
+        <RelativeLayout
+            android:id="@+id/shopkeeper_performance_back_btn"
+            android:layout_width="45dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/back_btn_bg"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textSize="22dp"
+            android:text="我的营业员"/>
+
+        <TextView
+            android:id="@+id/shopkeeper_addCard"
+            android:visibility="gone"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textSize="18dp"
+            android:text="添加"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/dataSelect"
+        android:layout_below="@id/myPer_nav_background"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:textSize="18dp"
+            android:text="业绩时间范围："/>
+
+        <TextView
+            android:id="@+id/shopkeeper_Performance_selectDate1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#CDC9C9"
+
+
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="10dp"
+
+
+            android:layout_height="3dp"
+            android:layout_gravity="center"
+            android:background="@color/material_blue_grey_800"/>
+
+        <TextView
+            android:id="@+id/shopkeeper_Performance_selectDate2"
+
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#CDC9C9"
+            android:textSize="18dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/shopkeeper_performance_totalTxt"
+        android:layout_below="@id/dataSelect"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#B22222"
+            android:gravity="center"
+            android:text="该时间段内一共有5人成功办卡"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_below="@+id/shopkeeper_performance_totalTxt"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/light_gray_line"/>
+
+    <LinearLayout
+        android:id="@+id/diyigeyingyeyuan"
+        android:layout_below="@id/shopkeeper_performance_totalTxt"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/sh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:text="营业员：张笑"/>
+
+        <TextView
+            android:id="@+id/bankashu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:gravity="right"
+            android:textSize="18dp"
+            android:text="办卡数：5"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_below="@id/diyigeyingyeyuan"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/light_gray_line"/>
+
+</RelativeLayout>

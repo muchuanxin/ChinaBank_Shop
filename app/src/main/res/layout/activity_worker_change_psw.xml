@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.xd.aselab.chinabank_shop.activity.worker.WorkerChangePsw">
+
+    <RelativeLayout
+        android:id="@+id/worker_changePsw_status_background"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/navigation_bg">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/worker_changePsw_nav_bg"
+        android:layout_below="@id/worker_changePsw_status_background"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/navigation_bg">
+        <RelativeLayout
+            android:id="@+id/worker_changePsw_back_btn"
+            android:layout_width="45dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/back_btn_bg"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textSize="22dp"
+            android:text="修改密码"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/worker_id_row"
+        android:layout_below="@id/worker_changePsw_nav_bg"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="账号："
+            android:textSize="18dp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/worker_changePsw_id"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:gravity="center"
+            android:textSize="18dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/worker_old_psw_row"
+        android:layout_below="@id/worker_id_row"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="旧密码："
+            android:textSize="18dp"
+            android:gravity="center"/>
+        <EditText
+            android:id="@+id/worker_changePsw_oldPsw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword"
+            android:textSize="18dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/worker_new_psw_row"
+        android:layout_below="@id/worker_old_psw_row"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="新密码："
+            android:textSize="18dp"
+            android:gravity="center"/>
+        <EditText
+            android:id="@+id/worker_changePsw_newPsw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword"
+            android:textSize="18dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/worker_new_psw_row_again"
+        android:layout_below="@id/worker_new_psw_row"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="确认密码："
+            android:textSize="18dp"
+            android:gravity="center"/>
+        <EditText
+            android:id="@+id/worker_changePsw_newPsw_again"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword"
+            android:textSize="18dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/worker_changePsw_tijiao"
+        android:layout_below="@id/worker_new_psw_row_again"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_worker_changePsw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="提交"
+            android:textSize="18dp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:background="@drawable/login_btn_bg"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

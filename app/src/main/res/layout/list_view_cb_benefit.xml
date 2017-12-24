@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/list_view_cb_benefit_img"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_margin="15dp"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/list_view_cb_benefit_txt"
+        android:layout_alignBottom="@id/list_view_cb_benefit_img"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:background="#5A5A5A"
+        android:textSize="18dp"
+        android:textColor="#fff"/>
+
+</RelativeLayout>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.xd.aselab.chinabank_shop.activity.worker.WorkerMyPerformance">
+
+    <RelativeLayout
+        android:id="@+id/worker_myPerfor_status_background"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/navigation_bg">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/worker_myPer_nav_background"
+        android:layout_below="@id/worker_myPerfor_status_background"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/navigation_bg">
+        <RelativeLayout
+            android:id="@+id/worker_performance_back_btn"
+            android:layout_width="45dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/back_btn_bg"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textSize="22dp"
+            android:text="我的业绩详情"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/worker_dataSelect"
+        android:layout_below="@id/worker_myPer_nav_background"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:gravity="center"
+            android:textSize="18dp"
+            android:text="业绩时间范围："/>
+
+        <Spinner
+            android:id="@+id/worker_timeHorizonSpinner"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/backgroundtimepicker"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:id="@+id/worker_timeSelect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/backgroundtimepicker"
+            android:textColor="#3A3A3A"
+            android:gravity="center"
+            android:text="最近一周"
+            android:textSize="18dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/worker_my_success_total_cards"
+        android:layout_below="@id/worker_dataSelect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:text="成功办卡0张"
+        android:textColor="#B22222" />
+
+    <TextView
+        android:id="@+id/worker_my_total_scan_number"
+        android:layout_below="@id/worker_my_success_total_cards"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:text="办卡扫描量0张"
+        android:textColor="#B22222" />
+
+    <TextView
+        android:id="@+id/worker_my_ranking"
+        android:visibility="gone"
+        android:layout_below="@id/worker_my_total_scan_number"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:textColor="#B22222"
+        android:text="我当前的排名：5/10"/>
+
+    <TextView
+        android:id="@+id/act_my_perf_gray_bar"
+        android:layout_below="@id/worker_my_total_scan_number"
+        android:layout_marginTop="55dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:background="#E0E0E0"
+        android:textColor="#3A3A3A"
+        android:textSize="18dp"
+        android:text="2016年各月办卡成功情况分析"
+        android:visibility="gone"/>
+
+    <RelativeLayout
+        android:id="@+id/worker_my_performance_chart"
+        android:layout_below="@id/act_my_perf_gray_bar"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"/>
+
+
+</RelativeLayout>

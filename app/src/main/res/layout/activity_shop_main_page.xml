@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.xd.aselab.chinabank_shop.activity.shop.ShopMainPageActivity">
+
+    <RelativeLayout
+        android:id="@+id/shop_status_background"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/navigation_bg">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/shop_nav_mainPage"
+        android:layout_below="@id/shop_status_background"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/navigation_bg">
+
+        <TextView
+            android:id="@+id/btn_shop_main_my_contact"
+            android:visibility="gone"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textSize="18dp"
+            android:text="联系人"/>
+
+        <TextView
+            android:id="@+id/act_main_shop_toast_i"
+            android:visibility="gone"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="13dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/rounded_circle"
+            android:gravity="center"
+            android:textSize="15dp"
+            android:textColor="#fff"
+            android:textAllCaps="false"
+            android:text="i"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#fff"
+            android:textSize="22dp"
+            android:text="金融获客"/>
+
+        <ImageView
+            android:id="@+id/btn_main_shop_info"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/personal_info"/>
+
+
+    </RelativeLayout>
+
+    <com.xd.aselab.chinabank_shop.fragment.ImageCycleView
+        android:id="@+id/act_main_ImageCycleView"
+        android:layout_below="@id/shop_nav_mainPage"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"/>
+
+    <LinearLayout
+        android:id="@+id/shop_main_my_management"
+        android:layout_below="@id/act_main_ImageCycleView"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="70dp"
+        android:layout_width="80dp"
+        android:layout_height="110dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/shop_manage"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="18dp"
+            android:textColor="#000"
+            android:text="我的管理"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/shop_main_hot_recommend"
+        android:layout_toRightOf="@id/shop_main_my_management"
+        android:layout_alignBottom="@id/shop_main_my_management"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="60dp"
+        android:layout_width="80dp"
+        android:layout_height="110dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/hot_recommend"/>
+
+        <TextView
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#000"
+            android:text="热点推荐"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/shop_main_my_network"
+        android:layout_below="@id/shop_main_my_management"
+        android:layout_marginTop="30dp"
+        android:layout_alignLeft="@id/shop_main_my_management"
+        android:layout_width="80dp"
+        android:layout_height="110dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/my_network"/>
+
+        <TextView
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#000"
+            android:text="银行网点"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/shop_main_china_bank_benefit"
+        android:layout_toRightOf="@id/shop_main_my_network"
+        android:layout_alignBottom="@id/shop_main_my_network"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="60dp"
+        android:layout_width="80dp"
+        android:layout_height="110dp"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/china_bank_benefit"/>
+
+        <TextView
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#000"
+            android:text="银行福利"/>
+
+    </LinearLayout>
+    <ImageView
+        android:layout_width="90dp"
+        android:layout_height="60dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/jcloud"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

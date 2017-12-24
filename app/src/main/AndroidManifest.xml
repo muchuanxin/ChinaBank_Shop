@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xd.aselab.chinabank_shop"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <permission
+        android:name="${applicationId}.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.IMAGE_CAPTURE" />
+    <!-- 高德地图权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <!-- 极光推送 -->
+    <uses-permission android:name="${applicationId}.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar"
+        android:windowSoftInputMode="stateHidden|stateUnchanged">
+
+        <!--
+        友盟数据
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+         android:theme="@style/Theme.AppCompat.NoActionBar"
+        -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="c3a7b9016d32c918524eaeb80670c779" />
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="57ce79bf67e58e641c0024a9" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="ChinaBankShop" />
+
+        <service android:name="com.amap.api.location.APSService" />
+
+        <activity
+            android:name=".activity.publicChinaBankShop.MainActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".photo.ImageFile"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".photo.ShowAllPhoto"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".photo.AlbumActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".photo.GalleryActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.publicChinaBankShop.LoginActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.worker.RegisterClerkActivity" />
+        <activity android:name=".activity.shop.ShopRegisterActivity" />
+        <activity android:name=".activity.shop.ShopMainPageActivity" />
+        <activity android:name=".activity.worker.ClerkMainPageActivity" />
+        <activity android:name=".activity.publicChinaBankShop.MyContactActivity" />
+        <activity android:name=".activity.shop.ShopInfoActivity" />
+        <activity android:name=".activity.shop.MyInfoActivity" />
+        <activity android:name=".activity.shop.ApplyTerminateActivity" />
+        <activity android:name=".activity.shop.ShopChangePswActivity" />
+        <activity android:name=".activity.shop.ShopChangeTelActivity" />
+        <activity android:name=".activity.shop.ShopkeeperPerformanceActivity" />
+        <activity android:name=".activity.shop.AddCardActivity" />
+        <activity android:name="com.zxing.activity.CaptureActivity" />
+        <activity android:name=".activity.worker.WorkerMyInfoActivity" />
+        <activity android:name=".activity.shop.ShopMyDimerCode" />
+        <activity android:name=".activity.worker.WorkerChangePsw" />
+        <activity android:name=".activity.worker.WorkerChangeTel" />
+        <activity android:name=".activity.shop.ShopMyManagement" />
+        <activity android:name="com.hotrecommnder.MainHotCardDetailActivity" />
+        <activity android:name="com.hotrecommnder.MainHotRecommenderActivity" />
+        <activity android:name=".activity.shop.ShopMyWorkers" />
+        <activity android:name=".activity.worker.WorkerMyPerformance" />
+        <activity android:name=".activity.shop.ShopMyWorkersTran" />
+        <activity
+            android:name=".activity.publicChinaBankShop.ChinaBankBenefit"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.publicChinaBankShop.CBBenefitDetail"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.publicChinaBankShop.CBNetwork"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.publicChinaBankShop.WhereToGo"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.publicChinaBankShop.WalkingRoute"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.publicChinaBankShop.SecureQuestionActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.publicChinaBankShop.ForgetPsw1Activity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.publicChinaBankShop.ForgetPsw2Activity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.publicChinaBankShop.ForgetPsw3Activity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity android:name=".activity.publicChinaBankShop.StartActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.CardDiv.CardDivMainPage" />
+        <activity android:name=".activity.CardDiv.CardDiv_My_Info" />
+        <activity android:name=".activity.CardDiv.CardDiv_My_Performance" />
+        <activity
+            android:name=".activity.CardDiv.CardDiv_My_Recommend"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.CardDiv.CardDiv_My_Info_Info"
+            android:launchMode="singleTask" />
+        <activity android:name=".activity.CardDiv.CardDiv_Check_Public" />
+        <activity
+            android:name=".activity.CardDiv.CardDiv_Public_Info"
+            android:label="@string/title_activity_card_div__public__info"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".activity.CardDiv.CardDiv_Cancel_League" />
+        <activity android:name=".activity.CardDiv.CardDiv_Change_Password" />
+        <activity android:name=".activity.CardDiv.CardDiv_Change_Tel" />
+        <activity android:name=".activity.CardDiv.CardDiv_My_Recommend_Result" />
+        <activity android:name=".activity.CardDiv.CardDiv_My_Recommend_List" />
+        <activity android:name=".activity.CardDiv.CardDiv_My_Recommend_Fail" />
+        <activity android:name=".activity.personalLoan.Personal_My_Main_Page" />
+        <activity android:name=".activity.CardDiv.ChangePhotoActivity" />
+        <activity android:name=".activity.CardDiv.CardDiv_My_Register" />
+        <activity android:name=".activity.CardDiv.CardDiv_NewMainActivity" />
+        <activity android:name=".activity.CardDiv.Group_info" />
+        <activity
+            android:name=".activity.CardDiv.MainActivity"
+            android:launchMode="singleTask" />
+        <activity android:name=".activity.publicChinaBankShop.FontActivity" />
+        <activity android:name=".activity.publicChinaBankShop.MyTest" />
+        <activity
+            android:name=".activity.CardDiv.NewGroup"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".chat.ui.GroupChatActivity" />
+        <activity android:name=".chat.ui.ChatActivity" />
+        <!-- Required SDK核心功能 -->
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" /> <!-- Required  显示通知栏 -->
+                <category android:name="com.xd.aselab.chinabank_shop" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Required SDK核心功能 -->
+        <receiver
+            android:name="cn.jpush.android.service.AlarmReceiver"
+            android:exported="false" />
+        <receiver
+            android:name=".util.MyReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_CLICK_ACTION" />
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+
+                <category android:name="com.xd.aselab.chinabank_shop" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".util.jpush.MyJPushMessageReceiver">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+
+                <category android:name="com.xd.aselab.chinabank_shop" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".activity.publicChinaBankShop.CaptureActivity"></activity>
+    </application>
+
+</manifest>

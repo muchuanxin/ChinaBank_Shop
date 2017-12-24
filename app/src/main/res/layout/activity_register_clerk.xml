@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/main_bg_new"
+    tools:context="com.xd.aselab.chinabank_shop.activity.worker.RegisterClerkActivity">
+
+        <RelativeLayout
+            android:id="@+id/nav_clerk_register"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:background="@drawable/navigation_bg"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/c_back_to_login"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/back_btn_bg" />
+
+            <TextView
+                android:layout_alignParentBottom="true"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="20dp"
+                android:textColor="#fff"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:text="营业员加盟"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textColor="#222"
+                android:inputType="text"
+                android:layout_gravity="center"
+                android:text="账号："/>
+
+            <TextView
+                android:id="@+id/clerkId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textColor="#222"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textColor="#222"
+                android:maxEms="10"
+                android:text="密码："/>
+
+            <EditText
+                android:id="@+id/clerk_psw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:maxLength="12" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textColor="#222"
+                android:maxEms="10"
+                android:text="姓名："/>
+
+            <EditText
+                android:id="@+id/clerk_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="12" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textColor="#222"
+                android:maxEms="10"
+                android:text="手机号："/>
+
+            <EditText
+                android:id="@+id/clerk_Tel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="12" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textColor="#222"
+                android:text="店铺账号："/>
+
+            <TextView
+                android:id="@+id/shop_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textColor="#222" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnClerkregister"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15.0dip"
+                android:layout_marginRight="15.0dip"
+                android:background="@drawable/login_btn_bg"
+                android:singleLine="true"
+                android:textColor="#fff"
+                android:textSize="20dp"
+                android:text="注册"/>
+        </LinearLayout>
+
+</LinearLayout>

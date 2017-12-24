@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+
+    >
+
+    <TextView
+        android:id="@+id/recommend_num"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="30dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="您本月累计推荐业务"/>
+    <TextView
+        android:id="@+id/recommend_score"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@id/recommend_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="您本月累计推荐业务"/>
+    <TextView
+        android:id="@+id/exchange_score"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@id/recommend_score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="您本月累计推荐业务"/>
+    <TextView
+        android:id="@+id/maybe_score"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@id/exchange_score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="您本月累计推荐业务"/>
+</RelativeLayout>

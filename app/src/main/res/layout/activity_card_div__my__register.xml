@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg_new"
+    tools:context="com.xd.aselab.chinabank_shop.activity.CardDiv.CardDiv_My_Register">
+
+    <RelativeLayout
+        android:id="@+id/worker_myPerfor_status_background"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/navigation_bg"></RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/worker_myPer_nav_background"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@id/worker_myPerfor_status_background"
+        android:background="@drawable/navigation_bg">
+
+        <RelativeLayout
+            android:id="@+id/worker_performance_back_btn"
+            android:layout_width="45dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/return_button"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/back_btn_bg" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:text="4S店销售加盟"
+            android:textColor="#fff"
+            android:textSize="22dp" />
+
+    </RelativeLayout>
+
+
+    <TableLayout
+        android:id="@+id/table_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/worker_myPer_nav_background"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="50dp">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+
+                android:maxLength="12"
+                android:text="账号："
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/account"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+
+
+                android:textSize="16dp" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:gravity="right"
+                android:maxLength="12"
+
+                android:text="密码："
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:inputType="textPassword"
+                android:maxLength="32"
+                android:maxLines="1"
+                android:textSize="16dp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="姓名："
+
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:maxLength="25"
+                android:maxLines="1"
+                android:textSize="16dp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+
+                android:text="手机号："
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/tel"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:textSize="16dp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="工作单位："
+
+                android:textSize="16dp" />
+
+            <!--工作单位要求  640家工作单位中返回数据中取  输入前几个字  自动匹配后几个字  如果不是640家中的某一家则返回错误信息  拒绝用户提交操作-->
+
+            <AutoCompleteTextView
+                android:id="@+id/work_place"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:maxLength="45"
+
+                android:textSize="16dp" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="工作地址："
+
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/work_address"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+
+
+
+                android:textSize="16dp" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="经理账号："
+
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/manager"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+
+
+                android:maxLines="1"
+                android:textSize="16dp" />
+        </TableRow>
+
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+
+        android:layout_height="40dp"
+        android:layout_below="@id/table_layout"
+        android:layout_marginBottom="70px"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="40px"
+        android:background="@drawable/login_btn_bg"
+        android:text="注册"
+        android:textColor="#fff"
+        android:textSize="16dp" />
+
+</RelativeLayout>

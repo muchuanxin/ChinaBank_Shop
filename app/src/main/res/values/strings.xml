@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">金融获客商铺版</string>
+    <string name="title_activity_login">Login</string>
+
+    <!-- network -->
+    <string name="netstate">网络状态</string>
+    <string name="setnetwork">当前网络不可用，是否设置网络？</string>
+    <string name="ok_set">设置</string>
+    <string name="cancel_set">取消</string>
+    <string name="network_connect_exception">网络连接异常，请检查您的网络设置</string>
+    <string name="handler_what_exception">Handler获取Message异常，switch进入default</string>
+    <string name="status_exception">status异常，非true非false</string>
+    <string name="list_length_exception">list长度为0</string>
+    <string name="server_repairing">服务器维护中，请稍后再试</string>
+
+    <string name="header_hint_refresh_ready">松开刷新</string>
+    <string name="header_hint_refresh_loading">正在刷新&#8230;</string>
+    <string name="header_hint_refresh_normal">下拉刷新</string>
+    <string name="header_hint_refresh_time">时间：</string>
+    <string name="footer_hint_load_normal">加载更多</string>
+    <string name="footer_hint_load_ready">松开加载更多</string>
+    <string name="change_pass_warn">提示 :\n用户名和密码必须是6位以上字母与数字的组合</string>
+    <!-- request_dialog -->
+    <string name="sending_request">正在发送请求</string>
+    <string name="title_activity_main_consult_chat">MainConsultChatActivity</string>
+
+    <!-- setting -->
+    <string name="personal_information">个人信息</string>
+    <string name="version_updating">版本更新</string>
+    <string name="feedback">意见反馈</string>
+    <string name="about_us">关于我们</string>
+    <!-- photo -->
+    <string name="btn_take_photo">拍照</string>
+    <string name="btn_pick_photo">从相册选择</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_card_div__public__info">CardDiv_Public_Info</string>
+</resources>

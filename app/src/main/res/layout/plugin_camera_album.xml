@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@color/white">
+
+	<RelativeLayout
+		android:id="@+id/headview"
+		android:layout_width="match_parent"
+		android:layout_height="60dp"
+		android:orientation="horizontal"
+		android:background="#B81C1E">
+
+		<RelativeLayout
+			android:id="@+id/back"
+			android:layout_width="50dp"
+			android:layout_height="match_parent">
+
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="28dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginTop="20dp"
+				android:src="@drawable/back_btn_bg"/>
+
+		</RelativeLayout>
+
+		<TextView
+			android:id="@+id/tv_title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="20dp"
+			android:layout_centerHorizontal="true"
+			android:textColor="#fff"
+			android:textSize="22dp"
+			android:text="我的照片流"/>
+
+		<TextView
+			android:id="@+id/cancel_1"
+			android:padding="7dp"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:layout_marginTop="17dp"
+			android:layout_marginRight="15dp"
+			android:layout_alignParentRight="true"
+			android:textSize="18dp"
+			android:textColor="#fff"
+			android:text="取消"/>
+
+	</RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/black_bar"
+        android:layout_marginTop="3dp"
+        >
+        <TextView
+            android:id="@+id/preview"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:text="预览"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/gray"/>
+        <TextView
+            android:id="@+id/ok_button"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:text="完成"
+            android:layout_alignBaseline="@id/preview"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/orange"/>
+        <LinearLayout
+	        android:id="@+id/ll_number_of_images"
+	        android:layout_toLeftOf="@id/ok_button"
+	        android:layout_marginRight="5dp"
+	        android:layout_width="22dp"
+	        android:layout_height="22dp"
+	        android:layout_centerVertical="true"
+	        android:background="@drawable/dot_red" >
+			<TextView
+	            android:id="@+id/numberOfImages"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:text="2"
+	            android:gravity="center"
+	            android:textSize="14sp"
+	            android:textColor="@color/white"
+	            android:textStyle="bold"/>
+     </LinearLayout>
+    </RelativeLayout>
+
+    <GridView
+        android:id="@+id/myGrid"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/bottom_layout"
+        android:layout_below="@id/headview"
+        android:layout_centerInParent="true"
+        android:horizontalSpacing="5dp"
+        android:numColumns="4"
+        android:verticalSpacing="5dp"
+        android:background="#ffffff" />
+     
+   
+    <TextView
+        android:id="@+id/myText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="相册没有图片"
+        android:textColor="@color/black"
+        />
+      
+
+</RelativeLayout>

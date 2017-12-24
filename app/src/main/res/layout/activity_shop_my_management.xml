@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.xd.aselab.chinabank_shop.activity.shop.ShopMyManagement">
+
+    <RelativeLayout
+        android:id="@+id/shop_my_management_status_bg"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/navigation_bg">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/shop_my_management_nav_bag"
+        android:layout_below="@id/shop_my_management_status_bg"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/navigation_bg">
+        <RelativeLayout
+            android:id="@+id/shop_my_management_back_btn"
+            android:layout_width="45dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/back_btn_bg"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textSize="22dp"
+            android:text="我的管理"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_below="@id/shop_my_management_nav_bag"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#F0F0F0"/>
+
+    <LinearLayout
+        android:id="@+id/shop_my_performance_row"
+        android:layout_below="@id/shop_my_management_nav_bag"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:scaleType="fitXY"
+            android:layout_gravity="center"
+            android:background="@drawable/new_my_performance"/>
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:text="我的业绩"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_below="@id/shop_my_performance_row"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#F0F0F0"/>
+
+    <LinearLayout
+        android:id="@+id/shop_my_shop_info_row"
+        android:layout_below="@id/shop_my_performance_row"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:scaleType="fitXY"
+            android:layout_gravity="center"
+            android:background="@drawable/shop_infor"/>
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:text="店铺信息"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_below="@id/shop_my_shop_info_row"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#F0F0F0"/>
+
+    <TextView
+        android:layout_below="@id/shop_my_performance_row"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#F0F0F0"/>
+
+    <LinearLayout
+        android:id="@+id/my_shop_terminate_row"
+        android:layout_below="@id/shop_my_shop_info_row"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:scaleType="fitXY"
+            android:layout_gravity="center"
+            android:background="@drawable/shop_release"/>
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:text="解除约定"/>
+    </LinearLayout>
+
+</RelativeLayout>
