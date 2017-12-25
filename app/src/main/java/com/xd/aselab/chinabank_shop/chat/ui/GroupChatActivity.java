@@ -105,6 +105,7 @@ public class GroupChatActivity extends AppCompatActivity implements ImageSetting
 
         intiData();
         initViews();
+        initSmallVideo();
         registerMessageReceiver();
     }
 

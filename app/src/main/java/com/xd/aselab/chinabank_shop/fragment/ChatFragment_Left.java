@@ -1,5 +1,6 @@
 package com.xd.aselab.chinabank_shop.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -30,13 +31,14 @@ public class ChatFragment_Left extends Fragment {
     private ExpandableListView extendable_listview;
     private SharePreferenceUtil sp;
     private String[][] manager_head_image;
+    private Context mContext;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.chat_fragment_left, container, false);
         extendable_listview = (ExpandableListView) root.findViewById(R.id.expandable_listview);
-        sp = new SharePreferenceUtil(getActivity(), "user");
+        sp = new SharePreferenceUtil(mContext, "user");
         String[] parent = new String[]{"我的上级"};
         String[][] child = {{sp.getManagerName()}};
         manager_head_image = new String[][]{{sp.getCardDivManagerImage()}};
@@ -58,6 +60,13 @@ public class ChatFragment_Left extends Fragment {
         });
         return root;
     }
+
+    @Override
+    public void onAttach(Context context) {
+        this.mContext = getActivity();
+        super.onAttach(context);
+    }
+
 }
 
 
