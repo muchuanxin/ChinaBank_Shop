@@ -26,6 +26,12 @@ import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
+import com.mabeijianxi.smallvideorecord2.DeviceUtils;
+import com.mabeijianxi.smallvideorecord2.JianXiCamera;
+import com.mabeijianxi.smallvideorecord2.LocalMediaCompress;
+import com.mabeijianxi.smallvideorecord2.model.AutoVBRMode;
+import com.mabeijianxi.smallvideorecord2.model.LocalMediaConfig;
+import com.mabeijianxi.smallvideorecord2.model.OnlyCompressOverBean;
 import com.xd.aselab.chinabank_shop.R;
 import com.xd.aselab.chinabank_shop.activity.CardDiv.MainActivity;
 import com.xd.aselab.chinabank_shop.chat.adapter.ChatAdapter;
@@ -98,6 +104,7 @@ public class ChatActivity extends AppCompatActivity implements ImageSettingUtil.
 
         intiData();
         initViews();
+        initSmallVideo();
         registerMessageReceiver();
 
     }
@@ -649,39 +656,53 @@ public class ChatActivity extends AppCompatActivity implements ImageSettingUtil.
                         final String fileName="singlechat"+"_"+sender+"_"+"to"+"_"+receiver+"_"+ System.currentTimeMillis()+"."+extension;
                         final int finalI = i;
 
-                        new Thread(){
-                            @Override
-                            public void run() {
-                                super.run();
+                        LocalMediaConfig.Buidler buidler = new LocalMediaConfig.Buidler();
+                        final LocalMediaConfig config = buidler
+                                .setVideoPath(media.getPath())
+                                .captureThumbnailsTime(1)
+                                .doH264Compress(new AutoVBRMode())
+                                .setFramerate(10)
+                                .setScale(1.0f)
+                                .build();
+                        final OnlyCompressOverBean onlyCompressOverBean = new LocalMediaCompress(config).startCompress();
 
-                                PostParameter[] params = new PostParameter[7];
-                                time = format.format(new Date());
-                                params[0] = new PostParameter("time", time);
-                                params[1] = new PostParameter("sender", sender);
-                                params[2] = new PostParameter("sender_name", sender_name);
-                                params[3] = new PostParameter("receiver", receiver);
-                                params[4] = new PostParameter("type", "VIDEO");
-                                params[5] = new PostParameter("sender_head", sender_head);
-                                params[6] = new PostParameter("fileName", fileName);
+                        if (onlyCompressOverBean.isSucceed()){
+                            new Thread(){
+                                @Override
+                                public void run() {
+                                    super.run();
 
-                                File file = new File(media.getPath());
-                                InputStream inputStream = null;
-                                try {
-                                    inputStream = new FileInputStream(file);
-                                } catch (FileNotFoundException e) {
-                                    e.printStackTrace();
+                                    PostParameter[] params = new PostParameter[7];
+                                    time = format.format(new Date());
+                                    params[0] = new PostParameter("time", time);
+                                    params[1] = new PostParameter("sender", sender);
+                                    params[2] = new PostParameter("sender_name", sender_name);
+                                    params[3] = new PostParameter("receiver", receiver);
+                                    params[4] = new PostParameter("type", "VIDEO");
+                                    params[5] = new PostParameter("sender_head", sender_head);
+                                    params[6] = new PostParameter("fileName", fileName);
+
+                                    File file = new File(onlyCompressOverBean.getVideoPath());
+                                    InputStream inputStream = null;
+                                    try {
+                                        inputStream = new FileInputStream(file);
+                                    } catch (FileNotFoundException e) {
+                                        e.printStackTrace();
+                                    }
+                                    ImageSettingUtil.uploadImage(ChatActivity.this, finalI, params, inputStream, ConnectUtil.SingleChat+"?");
                                 }
-                                ImageSettingUtil.uploadImage(ChatActivity.this, finalI, params, inputStream, ConnectUtil.SingleChat+"?");
-                            }
-                        }.start();
+                            }.start();
 
-                        new Thread(){
-                            @Override
-                            public void run() {
-                                super.run();
-                                copyFile(new File(media.getPath()), new File(getMediaPath(fileName)));
-                            }
-                        }.start();
+                            new Thread(){
+                                @Override
+                                public void run() {
+                                    super.run();
+                                    copyFile(new File(media.getPath()), new File(getMediaPath(fileName)));
+                                }
+                            }.start();
+                        }
+
+
                     }
                     break;
             }
@@ -705,6 +726,26 @@ public class ChatActivity extends AppCompatActivity implements ImageSettingUtil.
             }
         }.start();
 
+    }
+
+    public void initSmallVideo() {
+        String filePath="";
+        File appCacheDir=null;
+        if (MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+            appCacheDir = new File(Environment.getExternalStorageDirectory(),"ChinaBank/compress_video/");
+            //目录是否存在
+            if (!appCacheDir.exists())
+                appCacheDir.mkdirs();
+            filePath=appCacheDir.getAbsolutePath()+ File.separator;
+        }
+        if (appCacheDir==null){ //没有SD卡
+            appCacheDir = getDir("images", Context.MODE_PRIVATE);
+            filePath = appCacheDir.getAbsolutePath()+ File.separator;
+        }
+        //Log.e("getFilePath", filePath);
+        JianXiCamera.setVideoCachePath(filePath);
+        // 初始化拍摄，遇到问题可选择开启此标记，以方便生成日志
+        JianXiCamera.initialize(false,null);
     }
 
     private void copyFile(File source, File dest){
