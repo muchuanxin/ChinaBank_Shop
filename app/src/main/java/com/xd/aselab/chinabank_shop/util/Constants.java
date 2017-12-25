@@ -20,8 +20,13 @@ public class Constants {
     public static final int ChatToRecordVideo  = 19947;
 
     public static String RECOMMEND =  "RECOMMEND"; //推荐
+    public static String ConfirmInstallmentRecommend =  "ConfirmInstallmentRecommend"; //经理确认或拒绝业务之后给销售的推送
     public static String CHAT = "SINGLECHAT"; //单聊
     public static String GROUPCHAT = "GROUPCHAT";//群聊
+    public static String CreateChatGroup = "CreateChatGroup";//创建群之后给群成员推送的消息类型
+    public static String DissolveChatGroup = "DissolveChatGroup";//解散群之后给群成员推送的消息类型
+    public static String InviteMemberToGroup = "InviteMemberToGroup";//群主拉人给被拉的人的推送
+    public static String ExpelMemberFromGroup = "ExpelMemberFromGroup";//群主踢人给被踢的人的推送
 
     public static final int ActivityCompatRequestPermissionsCode = 1003;
 }

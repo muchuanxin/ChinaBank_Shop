@@ -41,6 +41,7 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
+        android:name=".util.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -113,7 +114,6 @@
         <activity android:name=".activity.shop.ShopChangeTelActivity" />
         <activity android:name=".activity.shop.ShopkeeperPerformanceActivity" />
         <activity android:name=".activity.shop.AddCardActivity" />
-        <activity android:name="com.zxing.activity.CaptureActivity" />
         <activity android:name=".activity.worker.WorkerMyInfoActivity" />
         <activity android:name=".activity.shop.ShopMyDimerCode" />
         <activity android:name=".activity.worker.WorkerChangePsw" />
