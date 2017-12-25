@@ -19,6 +19,7 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:typeface">sans</item>
     </style>
 
     <style name="dialog" parent="@android:style/Theme.Holo.Dialog">

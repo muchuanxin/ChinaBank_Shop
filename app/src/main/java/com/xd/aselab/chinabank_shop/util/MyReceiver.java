@@ -4,11 +4,13 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.util.Log;
 
 
+import com.xd.aselab.chinabank_shop.activity.CardDiv.CardDiv_My_Recommend_List;
 import com.xd.aselab.chinabank_shop.activity.CardDiv.MainActivity;
 import com.xd.aselab.chinabank_shop.chat.ui.ChatActivity;
 import com.xd.aselab.chinabank_shop.chat.ui.GroupChatActivity;
@@ -16,7 +18,10 @@ import com.xd.aselab.chinabank_shop.chat.ui.GroupChatActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Random;
+import java.util.Set;
 
 import cn.jpush.android.api.JPushInterface;
 
@@ -30,7 +35,11 @@ import cn.jpush.android.api.JPushInterface;
 public class MyReceiver extends BroadcastReceiver {
 	private static final String TAG = "www";
     private String myExtra_str;
-    private String taskId,type;
+	private String type,groupID;
+	private SharePreferenceUtil spu;
+	private Handler handler;
+	private Set<String> groupSet_add = new HashSet<String>() ;
+	private Set<String> groupSet_exit = new HashSet<String>() ;
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
@@ -53,15 +62,31 @@ public class MyReceiver extends BroadcastReceiver {
 				int notifactionId = bundle.getInt(JPushInterface.EXTRA_NOTIFICATION_ID);
 				Log.d(TAG, "[MyReceiver] 接收到推送下来的通知的ID: " + notifactionId);
 
+				String s = bundle.getString(JPushInterface.EXTRA_EXTRA);
+				Log.d(TAG, "[MyReceiver] 接收到推送下来的通知的EXTRA_EXTRA: " + s);
+				JSONObject obj = new JSONObject(s);
+				String info = obj.getString("extra");
+				JSONObject json_extra = new JSONObject(info);
+				try {
+					type = json_extra.getString("message_type");
+					groupID = json_extra.getString("group_id");
+					Log.d(TAG, "NOTIFICATION_type---"+type);
+				}catch(JSONException e){
+
+				}
+				if(Constants.CreateChatGroup.equals(type)||Constants.InviteMemberToGroup.equals(type)){
+					Log.d(TAG, "新加进去的群---"+groupID);
+					groupSet_add.add(groupID);
+					JPushInterface.addTags(context,new Random().nextInt(),groupSet_add);
+				}else if(Constants.DissolveChatGroup.equals(type)||Constants.ExpelMemberFromGroup.equals(type)){
+					Log.d(TAG, "后退的群---"+groupID);
+					groupSet_exit.add(groupID);
+					JPushInterface.deleteTags(context,new Random().nextInt(),groupSet_exit);
+				}
+
+
 			} else if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())) {
 				Log.d(TAG, "[MyReceiver] 用户点击打开了通知");
-
-				/*//打开自定义的Activity
-				Intent i = new Intent(context, NewNotificationDetailNewActivity.class);
-				i.putExtras(bundle);
-				//i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP );
-				context.startActivity(i);*/
 				String s = bundle.getString(JPushInterface.EXTRA_EXTRA);
 				Log.d(TAG, "JPushInterface.EXTRA_EXTRA---"+s);
 				JSONObject obj = new JSONObject(s);
@@ -74,13 +99,11 @@ public class MyReceiver extends BroadcastReceiver {
 
 				}
 				// 在这里可以自己写代码去定义用户点击后的行为
-				Bundle bundle2 = new Bundle();
-				//bundle2.putString("taskId" , taskId);
-				if(Constants.RECOMMEND.equals(type)){
-					/*Intent i = new Intent(context, NewNotificationDetailNewActivity.class);  //自定义打开推荐分期的界面
-					i.putExtras(bundle2);
+				if(Constants.ConfirmInstallmentRecommend.equals(type)){
+					Intent i = new Intent(context, CardDiv_My_Recommend_List.class);  //自定义打开推荐分期界面
 					i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TOP);
-					context.startActivity(i);*/
+					i.putExtra("scope","one_week");
+					context.startActivity(i);
 				}else if(Constants.CHAT.equals(type)){
 					Log.e(TAG,"Constants.CHAT");
 					Intent i = new Intent(context, ChatActivity.class);  //自定义打开单聊界面
