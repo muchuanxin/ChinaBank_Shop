@@ -697,7 +697,7 @@ public class ChatActivity extends AppCompatActivity implements ImageSettingUtil.
                                 @Override
                                 public void run() {
                                     super.run();
-                                    copyFile(new File(media.getPath()), new File(getMediaPath(fileName)));
+                                    copyFile(new File(onlyCompressOverBean.getVideoPath()), new File(getMediaPath(fileName)));
                                 }
                             }.start();
                         }
