@@ -114,17 +114,23 @@ public class ForgetPsw3Activity extends AppCompatActivity {
                         @Override
                         public void run() {
                             super.run();
-                            PostParameter[] params = new PostParameter[3];
+                            PostParameter[] params = new PostParameter[4];
                             String reCode="";
                             if(type.equals("shop")){
                                 params[0] = new PostParameter("shop_account", getIntent().getStringExtra("account"));
                                 params[1] = new PostParameter("old_password", "NuLL");
                                 params[2] = new PostParameter("new_password", Encode.getEncode("MD5", new_psw));
                                 reCode = ConnectUtil.httpRequest(ConnectUtil.SHOP_CHANGE_PSW, params, ConnectUtil.POST);
-                            }else {
+                            }else if(type.equals("worker")) {
                                 params[0] = new PostParameter("worker_account", getIntent().getStringExtra("account"));
                                 params[1] = new PostParameter("old_password", "NuLL");
                                 params[2] = new PostParameter("new_password", Encode.getEncode("MD5", new_psw));
+                                reCode = ConnectUtil.httpRequest(ConnectUtil.WORKER_CHANGE_PSW, params, ConnectUtil.POST);
+                            }else if(type.equals("installment_worker")){
+                                params[0] = new PostParameter("worker_account", getIntent().getStringExtra("account"));
+                                params[1] = new PostParameter("old_password", "NuLL");
+                                params[2] = new PostParameter("new_password", Encode.getEncode("MD5", new_psw));
+                                params[3] = new PostParameter("type", "2");
                                 reCode = ConnectUtil.httpRequest(ConnectUtil.WORKER_CHANGE_PSW, params, ConnectUtil.POST);
                             }
 //                            params[0] = new PostParameter("account", getIntent().getStringExtra("account"));

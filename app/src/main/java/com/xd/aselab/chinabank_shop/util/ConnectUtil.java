@@ -101,8 +101,10 @@ public class ConnectUtil {
     public static String Installment_Worker_My_Recommend_List = API_HOST + "InstallmentWorkerMyRecommendList";
     //全部营业员业绩
     public static String GET_MY_WORKER = API_HOST + "GetMyWorker";
-    public static String SetSecureQuestion = API_HOST + "SetShopSecureQuestion";
-    public static String GetSecureQuestion = API_HOST + "GetShopSecureQuestion";
+    public static String SetShopSecureQuestion = API_HOST + "SetShopSecureQuestion";//设置商铺安全问题
+    public static String SetWorkerSecureQuestion = API_HOST + "SetWorkerSecureQuestion";//设置营业员安全问题
+    public static String SetInstallmentWorkerSecureQuestion = API_HOST + "SetInstallmentWorkerSecureQuestion";//设置4s店销售安全问题
+    public static String GetShopSecureQuestion = API_HOST + "GetShopSecureQuestion";//获取商铺/营业员/4s店销售安全问题
 
     public static String SingleChat = API_Chat+"SingleChat";
     public static String GetHistoryChatLog = API_Chat+"GetHistoryChatLog";

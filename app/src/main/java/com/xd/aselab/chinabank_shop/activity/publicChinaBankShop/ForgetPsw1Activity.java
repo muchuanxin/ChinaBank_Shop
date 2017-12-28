@@ -107,7 +107,7 @@ public class ForgetPsw1Activity extends AppCompatActivity {
                             super.run();
                             PostParameter[] params = new PostParameter[1];
                             params[0] = new PostParameter("telephone", account);
-                            String reCode = ConnectUtil.httpRequest(ConnectUtil.GetSecureQuestion, params, ConnectUtil.POST);
+                            String reCode = ConnectUtil.httpRequest(ConnectUtil.GetShopSecureQuestion, params, ConnectUtil.POST);
                             Message msg = new Message();
                             msg.what = 0;
                             msg.obj = reCode;

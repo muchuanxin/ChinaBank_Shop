@@ -60,7 +60,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-
                 android:maxLength="12"
                 android:text="账号："
                 android:textSize="16dp" />
@@ -70,8 +69,6 @@
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-
-
                 android:textSize="16dp" />
         </TableRow>
 
@@ -80,10 +77,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:gravity="right"
                 android:maxLength="12"
-
                 android:text="密码："
                 android:textSize="16dp" />
 
@@ -105,7 +100,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="right"
                 android:text="姓名："
-
                 android:textSize="16dp" />
 
             <EditText
@@ -124,7 +118,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-
                 android:text="手机号："
                 android:textSize="16dp" />
 
@@ -145,7 +138,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="right"
                 android:text="工作单位："
-
                 android:textSize="16dp" />
 
             <!--工作单位要求  640家工作单位中返回数据中取  输入前几个字  自动匹配后几个字  如果不是640家中的某一家则返回错误信息  拒绝用户提交操作-->
@@ -156,7 +148,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:maxLength="45"
-
                 android:textSize="16dp" />
         </TableRow>
 
@@ -167,7 +158,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="right"
                 android:text="工作地址："
-
                 android:textSize="16dp" />
 
             <TextView
@@ -175,9 +165,6 @@
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-
-
-
                 android:textSize="16dp" />
         </TableRow>
 
@@ -188,7 +175,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="right"
                 android:text="经理账号："
-
                 android:textSize="16dp" />
 
             <TextView
@@ -196,8 +182,6 @@
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-
-
                 android:maxLines="1"
                 android:textSize="16dp" />
         </TableRow>
@@ -208,7 +192,6 @@
     <Button
         android:id="@+id/register"
         android:layout_width="match_parent"
-
         android:layout_height="40dp"
         android:layout_below="@id/table_layout"
         android:layout_marginBottom="70px"

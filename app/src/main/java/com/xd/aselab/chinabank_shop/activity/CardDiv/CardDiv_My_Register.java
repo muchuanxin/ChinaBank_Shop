@@ -30,6 +30,7 @@ import android.widget.Toast;
 import com.xd.aselab.chinabank_shop.R;
 import com.xd.aselab.chinabank_shop.Vos.AccountTypeVo;
 import com.xd.aselab.chinabank_shop.activity.publicChinaBankShop.LoginActivity;
+import com.xd.aselab.chinabank_shop.activity.publicChinaBankShop.SecureQuestionActivity;
 import com.xd.aselab.chinabank_shop.util.ConnectUtil;
 import com.xd.aselab.chinabank_shop.util.Encode;
 import com.xd.aselab.chinabank_shop.util.PostParameter;
@@ -237,8 +238,9 @@ public class CardDiv_My_Register extends AppCompatActivity {
                             sp.setWorkerTel(tel_result);
                             sp.setWork_place(work_place_result);
                             sp.setShopManagerAccount(manager_account);
-                            Toast.makeText(CardDiv_My_Register.this, obj.getString("message"), Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(CardDiv_My_Register.this, LoginActivity.class);
+                            sp.setUserType("4s_worker");
+                           // Toast.makeText(CardDiv_My_Register.this, obj.getString("message"), Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(CardDiv_My_Register.this, SecureQuestionActivity.class);
                             startActivity(intent);
                         } else {
 

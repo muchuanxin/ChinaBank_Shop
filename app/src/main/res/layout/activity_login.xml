@@ -141,23 +141,22 @@
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
         android:clickable="true"
-        android:padding="10dp"
-        android:textColor="#9e9e9e"
+        android:textColor="@color/gray_text_most_1"
         android:text="忘记密码?"
-        android:textSize="18dp" />
+        android:textSize="16dp" />
 
     <TextView
         android:id="@+id/btn_to_shop_register"
         android:layout_width="100dp"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="20dp"
         android:clickable="true"
         android:gravity="center"
-        android:textColor="#9e9e9e"
+        android:textColor="@color/gray_text_most_1"
         android:text="加盟"
-        android:textSize="18dp" />
+        android:textSize="16dp" />
 
 
 </RelativeLayout>

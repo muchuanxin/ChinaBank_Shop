@@ -113,7 +113,20 @@ public class SecureQuestionActivity extends AppCompatActivity {
                             params[0] = new PostParameter("account", spu.getAccount());
                             params[1] = new PostParameter("question", question);
                             params[2] = new PostParameter("answer", answer);
-                            String reCode = ConnectUtil.httpRequest(ConnectUtil.SetSecureQuestion, params, ConnectUtil.POST);
+                            String type = spu.getUserType();
+                            String reCode = "";
+                            switch (type){
+                                case "shop":
+                                    reCode = ConnectUtil.httpRequest(ConnectUtil.SetShopSecureQuestion, params, ConnectUtil.POST);
+                                    break;
+                                case "shop_worker":
+                                    reCode = ConnectUtil.httpRequest(ConnectUtil.SetWorkerSecureQuestion, params, ConnectUtil.POST);
+                                    break;
+                                case "4s_worker":
+                                    reCode = ConnectUtil.httpRequest(ConnectUtil.SetInstallmentWorkerSecureQuestion, params, ConnectUtil.POST);
+                                    break;
+                            }
+
                             Message msg = new Message();
                             msg.what = 0;
                             msg.obj = reCode;
@@ -124,6 +137,6 @@ public class SecureQuestionActivity extends AppCompatActivity {
             }
         });
 
-        Toast.makeText(SecureQuestionActivity.this, "初次登录，请填写安全验证问题", Toast.LENGTH_LONG).show();
+        Toast.makeText(SecureQuestionActivity.this, "注册成功，请填写安全验证问题", Toast.LENGTH_LONG).show();
     }
 }

@@ -148,6 +148,14 @@ public class MyInfoActivity extends AppCompatActivity {
                     state = true;
                     changePsw.setOnClickListener(null);
                     changeTel.setOnClickListener(null);
+                    my_dimerCode.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent=new Intent();
+                            intent.setClass(MyInfoActivity.this,ShopMyDimerCode.class);
+                            startActivity(intent);
+                        }
+                    });
 
     }
 }

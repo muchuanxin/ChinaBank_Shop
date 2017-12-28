@@ -2,6 +2,7 @@ package com.xd.aselab.chinabank_shop.activity.worker;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import com.umeng.analytics.MobclickAgent;
 import com.xd.aselab.chinabank_shop.R;
 import com.xd.aselab.chinabank_shop.Vos.AccountTypeVo;
+import com.xd.aselab.chinabank_shop.activity.publicChinaBankShop.SecureQuestionActivity;
 import com.xd.aselab.chinabank_shop.util.ConnectUtil;
 import com.xd.aselab.chinabank_shop.util.DialogFactory;
 import com.xd.aselab.chinabank_shop.util.Encode;
@@ -64,7 +66,7 @@ public class RegisterClerkActivity extends AppCompatActivity {
                     }
 
                     if(reCode.equals("true")){
-                        ToastCustom.makeToastCenter(getApplicationContext(), "注册成功");
+                     //   ToastCustom.makeToastCenter(getApplicationContext(), "注册成功");
                         SharePreferenceUtil sp=new SharePreferenceUtil(getApplicationContext(),"user");
                         System.out.println("register--sp "+sp);
                         sp.setAccount(workerID);
@@ -73,9 +75,13 @@ public class RegisterClerkActivity extends AppCompatActivity {
                         sp.setWorkerTel(wTel);
                         sp.setTelAccount(wTel);
                         sp.setShopAccount(shop_account);
+                        sp.setUserType("shop_worker");
                         System.out.println("register--sp.setAccount"+sp.getAccount());
                         //setResult(Activity.RESULT_OK);
-                        RegisterClerkActivity.this.finish();
+                        //RegisterClerkActivity.this.finish();
+                        Intent intent = new Intent();
+                        intent.setClass(RegisterClerkActivity.this, SecureQuestionActivity.class);
+                        startActivity(intent);
                     }else if (reCode.equals("false")){
                         if(!message.equals("")){
                             ToastCustom.makeToastCenter(getApplicationContext(),message);

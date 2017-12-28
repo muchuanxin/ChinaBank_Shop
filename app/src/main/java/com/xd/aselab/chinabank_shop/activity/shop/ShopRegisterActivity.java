@@ -99,7 +99,7 @@ public class ShopRegisterActivity extends AppCompatActivity {
                     }
 
                     if(reCode.equals("true")){
-                        ToastCustom.makeToastCenter(getApplicationContext(), "注册成功,等待审核");
+                       // ToastCustom.makeToastCenter(getApplicationContext(), "注册成功,等待审核");
                       //  sp=new SharePreferenceUtil(ShopRegisterActivity.this,"user");
                         sp.setAccount(shopkeeper_acccount);
                         sp.setPassword(password);
@@ -111,6 +111,7 @@ public class ShopRegisterActivity extends AppCompatActivity {
                         sp.setShopCity(city);
                         sp.setShopCounty(area);
                         sp.setShopStreet(street);
+                        sp.setUserType("shop");
                         Log.e("www","----"+sp.getShopProvince()+ sp.getShopCity()+ sp.getShopCounty()+ sp.getShopStreet());
 //                        setResult(Activity.RESULT_OK);
 //                        ShopRegisterActivity.this.finish();
