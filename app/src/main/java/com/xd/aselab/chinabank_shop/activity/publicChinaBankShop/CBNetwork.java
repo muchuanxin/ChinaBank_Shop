@@ -27,7 +27,6 @@ import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
-import com.amap.api.maps.overlay.WalkRouteOverlay;
 import com.amap.api.services.core.LatLonPoint;
 import com.amap.api.services.geocoder.GeocodeAddress;
 import com.amap.api.services.geocoder.GeocodeQuery;
@@ -36,6 +35,7 @@ import com.amap.api.services.geocoder.GeocodeSearch;
 import com.amap.api.services.geocoder.RegeocodeResult;
 import com.amap.api.services.route.BusRouteResult;
 import com.amap.api.services.route.DriveRouteResult;
+import com.amap.api.services.route.RideRouteResult;
 import com.amap.api.services.route.RouteSearch;
 import com.amap.api.services.route.WalkPath;
 import com.amap.api.services.route.WalkRouteResult;
@@ -93,7 +93,7 @@ public class CBNetwork extends AppCompatActivity implements LocationSource,AMapL
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
 
-        showProgressDialog("正在定位，请稍后");
+        //showProgressDialog("正在定位，请稍后");
         //Log.e("SAH1_MCX", sHA1(CBNetwork.this));
 
         back = (RelativeLayout) findViewById(R.id.act_cb_network_back_btn);
@@ -219,6 +219,17 @@ public class CBNetwork extends AppCompatActivity implements LocationSource,AMapL
             // 在定位结束后，在合适的生命周期调用onDestroy()方法
             // 在单次定位情况下，定位无论成功与否，都无需调用stopLocation()方法移除请求，定位sdk内部会移除
 
+            AMapLocation location = locationClient.getLastKnownLocation();//获取最后一次定位
+            if (location!=null){
+                this.amapLocation = location;
+                mListener.onLocationChanged(amapLocation);// 显示系统小蓝点
+                aMap.moveCamera(CameraUpdateFactory.zoomTo(14));
+                //requestDialog.showProgressDialog(MarketingGuide.this,"正在搜索，请稍后");
+                //showProgressDialog("正在搜索，请稍后");
+            }
+            //定位与添加marker为异步，顺序为 调用最后一次定位->加marker->新定位
+            sendMsg();
+
             locationClient.startLocation();
         }
     }
@@ -269,13 +280,13 @@ public class CBNetwork extends AppCompatActivity implements LocationSource,AMapL
     @Override
     public void onLocationChanged(AMapLocation amapLocation) {
         if (mListener != null && amapLocation != null) {
-            dissmissProgressDialog();
+            //dissmissProgressDialog();
             if ( amapLocation.getErrorCode() == 0) {
                 this.amapLocation = amapLocation;
                 mListener.onLocationChanged(amapLocation);// 显示系统小蓝点
                 aMap.moveCamera(CameraUpdateFactory.zoomTo(14));
-                showProgressDialog("正在搜索，请稍后");
-                sendMsg();
+                //showProgressDialog("正在搜索，请稍后");
+                //sendMsg();
             } else {
                 Toast.makeText(CBNetwork.this, "定位失败，请点击右上角的定位按钮重新定位", Toast.LENGTH_SHORT).show();
                 String errText = "定位失败," + amapLocation.getErrorCode()+ ": " + amapLocation.getErrorInfo();
@@ -375,7 +386,7 @@ public class CBNetwork extends AppCompatActivity implements LocationSource,AMapL
      */
     @Override
     public void onGeocodeSearched(GeocodeResult result, int rCode) {
-        dissmissProgressDialog();
+        //dissmissProgressDialog();
         /*count++;
         Log.e("count",""+count);
         if (count==size){
@@ -424,7 +435,7 @@ public class CBNetwork extends AppCompatActivity implements LocationSource,AMapL
         if (endPoint == null) {
             ToastUtil.show(CBNetwork.this, "终点未设置");
         }
-        showProgressDialog("正在导航，请稍后");
+        //showProgressDialog("正在导航，请稍后");
         final RouteSearch.FromAndTo fromAndTo = new RouteSearch.FromAndTo(
                 startPoint, endPoint);
         if (routeType == ROUTE_TYPE_WALK) {// 步行路径规划
@@ -445,7 +456,7 @@ public class CBNetwork extends AppCompatActivity implements LocationSource,AMapL
 
     @Override
     public void onWalkRouteSearched(WalkRouteResult result, int errorCode) {
-        dissmissProgressDialog();
+        //dissmissProgressDialog();
         //aMap.clear();// 清理地图上的所有覆盖物
         if (errorCode == 1000) {
             if (result != null && result.getPaths() != null) {
@@ -473,6 +484,11 @@ public class CBNetwork extends AppCompatActivity implements LocationSource,AMapL
         } else {
             //ToastUtil.showerror(this.getApplicationContext(), errorCode);
         }
+    }
+
+    @Override
+    public void onRideRouteSearched(RideRouteResult rideRouteResult, int i) {
+
     }
 
     /**
