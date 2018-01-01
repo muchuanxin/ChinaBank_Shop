@@ -151,7 +151,7 @@ public class ChatFragment_Right extends Fragment {
 
                         }
 
-                        adapter = new MyExtendableAdapter(parent, group_name, getContext(), false, child_head);
+                        adapter = new MyExtendableAdapter(parent, group_name, mContext, false, child_head);
                         extendable_listview.setAdapter(adapter);
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -181,7 +181,7 @@ public class ChatFragment_Right extends Fragment {
                 super.run();
                 String jsonStr = ConnectUtil.httpRequest(ConnectUtil.GetMyCreateGroup, post, "POST");
                 String IjoinStr = ConnectUtil.httpRequest(ConnectUtil.GetMyJoinGroup, post, "POST");
- Log.d("我加入的群",IjoinStr);
+ Log.d("我加入的群",""+IjoinStr);
                 //我创建的群和我加入的群都不能为空
                 if (null == jsonStr || null == IjoinStr) {
                     msg.what = 0;

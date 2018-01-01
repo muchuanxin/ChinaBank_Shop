@@ -43,7 +43,7 @@ public class ChatFragment_Left extends Fragment {
         String[][] child = {{sp.getManagerName()}};
         manager_head_image = new String[][]{{sp.getCardDivManagerImage()}};
 //false表示不显示人名字后面的  复选框
-        adapter = new MyExtendableAdapter(parent, child, inflater.getContext(), false, manager_head_image);
+        adapter = new MyExtendableAdapter(parent, child, mContext, false, manager_head_image);
         adapter.setCheckBoxInvisible();
         extendable_listview.setAdapter(adapter);
         extendable_listview.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {

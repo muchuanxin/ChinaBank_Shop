@@ -27,15 +27,6 @@
             android:layout_width="45dp"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/exit"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_marginLeft="10dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/back_btn_bg"
-                />
-
         </RelativeLayout>
 
         <TextView
@@ -44,7 +35,7 @@
             android:gravity="center"
             android:textColor="#fff"
             android:textSize="22dp"
-            android:text="公告"/>
+            android:text="推荐"/>
 
     </RelativeLayout>
 
