@@ -177,7 +177,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
                 android:gravity="right"
-                android:text="购买商品："
+                android:text="汽车品牌："
                 android:textColor="#9e9e9e"
                 android:textSize="16dp" />
 

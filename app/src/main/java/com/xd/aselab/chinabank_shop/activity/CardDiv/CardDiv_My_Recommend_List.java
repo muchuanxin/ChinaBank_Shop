@@ -214,7 +214,7 @@ public class CardDiv_My_Recommend_List extends AppCompatActivity {
             viewHolder.tel.setText("联系电话：" + mymap.get("telephone") + "");
             viewHolder.div_money.setText("分期金额：" + mymap.get("money") + "万元");
             viewHolder.div_mun.setText("分期数：" + mymap.get("installment_num") + "");
-            viewHolder.purchase.setText("购买商品：" + mymap.get("car_type") + "");
+            viewHolder.purchase.setText("汽车品牌：" + mymap.get("car_type") + "");
             viewHolder.evaluation.setText("预授信评分：" + mymap.get("evaluation") + "");
             viewHolder.image.setOnClickListener(new View.OnClickListener() {
                 @Override
