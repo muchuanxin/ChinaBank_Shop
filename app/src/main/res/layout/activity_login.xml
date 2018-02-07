@@ -17,8 +17,7 @@
             android:layout_width="160dp"
             android:layout_height="50dp"
 
-
-            android:background="@drawable/bank_of_china" />
+            android:background="@drawable/login_logo" />
     </LinearLayout>
 
     <ImageView
@@ -130,7 +129,7 @@
             android:gravity="center"
             android:text="登录"
             android:textColor="#fff"
-            android:textSize="18.0sp" />
+            android:textSize="18dp" />
     </LinearLayout>
 
     <TextView

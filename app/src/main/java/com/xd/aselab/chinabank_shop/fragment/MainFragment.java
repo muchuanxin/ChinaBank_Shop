@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.xd.aselab.chinabank_shop.R;
 import com.xd.aselab.chinabank_shop.activity.CardDiv.CardDivMainPage;
+import com.xd.aselab.chinabank_shop.activity.CardDiv.CardDivMyRecommend2;
 import com.xd.aselab.chinabank_shop.activity.CardDiv.CardDiv_My_Info;
 import com.xd.aselab.chinabank_shop.activity.CardDiv.CardDiv_My_Performance;
 import com.xd.aselab.chinabank_shop.activity.CardDiv.CardDiv_My_Recommend;
@@ -150,7 +151,7 @@ public class MainFragment extends Fragment {
         hotpoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), CardDiv_My_Recommend.class);
+                Intent intent = new Intent(getActivity(), CardDivMyRecommend2.class);
                 startActivity(intent);
             }
         });

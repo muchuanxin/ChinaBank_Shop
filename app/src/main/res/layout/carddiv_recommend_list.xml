@@ -141,6 +141,7 @@
     </LinearLayout>
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/hh"
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -150,6 +151,7 @@
         android:background="#eaeeef" />
 
     <RelativeLayout
+        android:visibility="gone"
         android:id="@+id/relative"
         android:layout_width="match_parent"
         android:layout_height="35dp"
@@ -159,6 +161,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/evaluation"
             android:layout_width="wrap_content"
             android:textSize="14dp"

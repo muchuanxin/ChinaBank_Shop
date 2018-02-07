@@ -62,7 +62,7 @@
             android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:src="@drawable/bank_of_china" />
+             />
 
         <TextView
             android:id="@+id/group_tag"

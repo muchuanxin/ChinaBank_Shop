@@ -454,7 +454,7 @@ public class CardDiv_My_Performance extends Activity implements OnChartValueSele
 
         } else {
             // create 2 DataSets
-            set1 = new BarDataSet(yVals1, "成功总金额(元)");
+            set1 = new BarDataSet(yVals1, "成功总金额(万元)");
             set1.setColor(Color.rgb(255, 133, 133));
             set2 = new BarDataSet(yVals2, "成功业务量(笔)");
             set2.setColor(Color.rgb(98, 188, 255));

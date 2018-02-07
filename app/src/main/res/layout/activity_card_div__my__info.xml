@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eaeeef"
-    tools:context="com.xd.aselab.chinabank_shop.activity.CardDiv.CardDiv_My_Info">
+    >
 
     <RelativeLayout
         android:id="@+id/shop_my_management_status_bg"
@@ -115,17 +115,6 @@
     </LinearLayout-->
 
 
-    <Button
-        android:id="@+id/exit"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/login_btn_bg"
-        android:gravity="center_horizontal"
-        android:text="退出"
-        android:textColor="#fff"
-        android:textSize="16dp"
-        android:visibility="gone" />
 
     <LinearLayout
         android:id="@+id/terminate_row"
@@ -169,6 +158,52 @@
             android:layout_weight="1"
             android:src="@drawable/right" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/exchange_score_line"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/terminate_row"
+        android:layout_marginTop="2dp"
+        android:background="#fff">
+
+        <ImageView
+            android:id="@+id/image3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/announcement" />
+
+        <TextView
+            android:id="@+id/unexchange_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/image2"
+            android:textSize="14dp"
+            android:layout_weight="20"
+            android:text="积分兑换" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:src="@drawable/right" />
+    </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -207,9 +242,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="20"
-                android:gravity="center_vertical"
+                android:gravity="center_vertical|end"
                 android:text="asdkjdsad"
-
                 android:textAlignment="textEnd"
                 android:textSize="16dp" />
 

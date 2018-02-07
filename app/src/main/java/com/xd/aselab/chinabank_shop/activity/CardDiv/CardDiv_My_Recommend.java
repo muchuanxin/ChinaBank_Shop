@@ -190,7 +190,7 @@ public class CardDiv_My_Recommend extends AppCompatActivity {
 
         //设置输入法弹出框hidden
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-        final_intent = new Intent(CardDiv_My_Recommend.this, CardDiv_My_Recommend_Fail.class);
+//        final_intent = new Intent(CardDiv_My_Recommend.this, CardDiv_My_Recommend_Fail.class);
         map = new HashMap();
         isclear = false;
         builder = new AlertDialog.Builder(this);

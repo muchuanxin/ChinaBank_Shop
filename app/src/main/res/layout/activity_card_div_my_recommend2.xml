@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.xd.aselab.chinabank_shop.activity.CardDiv.CardDivMyRecommend2">
+
+    <RelativeLayout
+        android:id="@+id/worker_myPerfor_status_background"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/navigation_bg"></RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/worker_myPer_nav_background"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@id/worker_myPerfor_status_background"
+        android:background="@drawable/navigation_bg">
+
+        <RelativeLayout
+            android:id="@+id/worker_performance_back_btn"
+            android:layout_width="45dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/return_button"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/back_btn_bg" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:text="推荐分期"
+            android:textColor="#fff"
+            android:textSize="22dp" />
+
+    </RelativeLayout>
+
+
+    <TableLayout
+        android:id="@+id/table_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/worker_myPer_nav_background"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="55dp">
+
+
+        <TableRow>
+
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+
+                android:gravity="right"
+                android:maxLength="12"
+                android:text="申请人姓名："
+                android:textColor="#9e9e9e"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+
+                android:maxLength="11"
+                android:maxLines="1"
+                android:textColor="#9e9e9e"
+                android:textSize="16dp" />
+        </TableRow>
+
+
+        <TableRow>
+
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+
+                android:gravity="right"
+                android:maxLength="12"
+                android:text="联系方式："
+                android:textColor="#9e9e9e"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/tel"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:inputType="numberDecimal"
+                android:maxLength="11"
+                android:maxLines="1"
+                android:textColor="#9e9e9e"
+                android:textSize="16dp" />
+        </TableRow>
+
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+
+                android:gravity="right"
+                android:maxLength="12"
+                android:text="分期总金额(万元)："
+                android:textColor="#9e9e9e"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/money"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:inputType="numberDecimal"
+                android:maxLength="11"
+                android:maxLines="1"
+                android:textColor="#9e9e9e"
+                android:textSize="16dp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+
+                android:layout_height="32dp"
+                android:gravity="right"
+                android:maxLength="12"
+                android:text="分期数："
+                android:textColor="#9e9e9e"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/mun"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:inputType="number"
+                android:maxLength="3"
+                android:maxLines="1"
+                android:textColor="#9e9e9e"
+                android:textSize="16dp" />
+        </TableRow>
+
+
+    </TableLayout>
+
+
+    <Button
+        android:id="@+id/calculate"
+        android:layout_width="325dp"
+        android:layout_height="42dp"
+        android:layout_below="@id/table_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70px"
+        android:background="@drawable/login"
+        android:gravity="center"
+        android:text="提交"
+        android:textColor="#fff"
+        android:textSize="16dp" />
+
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+

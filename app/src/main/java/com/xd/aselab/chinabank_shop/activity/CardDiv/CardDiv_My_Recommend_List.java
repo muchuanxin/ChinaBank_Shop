@@ -92,8 +92,8 @@ public class CardDiv_My_Recommend_List extends AppCompatActivity {
                             map.put("time", temp.getString("time"));
                             map.put("money", temp.getString("money"));
                             map.put("installment_num", temp.getString("installment_num"));
-                            map.put("car_type", temp.getString("car_type"));
-                            map.put("evaluation", temp.getString("evaluation"));
+//                            map.put("car_type", temp.getString("car_type"));
+//                            map.put("evaluation", temp.getString("evaluation"));
                             map.put("confirm", temp.getString("confirm"));
 
                             temp_list.add(map);
@@ -199,7 +199,7 @@ public class CardDiv_My_Recommend_List extends AppCompatActivity {
                 viewHolder.div_money = (TextView) myview.findViewById(R.id.div_money);
                 viewHolder.div_mun = (TextView) myview.findViewById(R.id.div_num);
                 viewHolder.purchase = (TextView) myview.findViewById(R.id.purchase);
-                viewHolder.evaluation = (TextView) myview.findViewById(R.id.evaluation);
+//                viewHolder.evaluation = (TextView) myview.findViewById(R.id.evaluation);
                 viewHolder.confirm = (TextView) myview.findViewById(R.id.confirm);
                 viewHolder.image = (ImageView) myview.findViewById(R.id.head);
                 myview.setTag(viewHolder);
@@ -214,8 +214,8 @@ public class CardDiv_My_Recommend_List extends AppCompatActivity {
             viewHolder.tel.setText("联系电话：" + mymap.get("telephone") + "");
             viewHolder.div_money.setText("分期金额：" + mymap.get("money") + "万元");
             viewHolder.div_mun.setText("分期数：" + mymap.get("installment_num") + "");
-            viewHolder.purchase.setText("汽车品牌：" + mymap.get("car_type") + "");
-            viewHolder.evaluation.setText("预授信评分：" + mymap.get("evaluation") + "");
+//            viewHolder.purchase.setText("汽车品牌：" + mymap.get("car_type") + "");
+//            viewHolder.evaluation.setText("预授信评分：" + mymap.get("evaluation") + "");
             viewHolder.image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -276,7 +276,7 @@ public class CardDiv_My_Recommend_List extends AppCompatActivity {
             public TextView div_money;
             public TextView div_mun;
             public TextView purchase;
-            public TextView evaluation;
+//            public TextView evaluation;
             public TextView confirm;
             public ImageView image;
         }
