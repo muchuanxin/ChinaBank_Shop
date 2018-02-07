@@ -39,7 +39,7 @@ public class ConnectUtil {
 
     // public final static String API_HOST = "http://117.34.117.107/ChinaBank/Shop/";
     //public final static String API_HOST = "http://www.juyunjinrongapp.com/ChinaBank/Shop/";
-    //public final static String API_HOST = "http://47.93.31.35/ChinaBank/Shop/";
+//    public final static String API_HOST = "http://47.93.31.35/ChinaBank/Shop/";
 //    public final static String API_HOST = "http://192.168.0.129/ChinaBank/Shop/";
     //public final static String API_HOST = "http://47.93.31.35/ChinaBank/Shop/";
     //47.93.31.35
@@ -50,7 +50,7 @@ public class ConnectUtil {
     //public final static String IP = "http://www.juyunjinrongapp.com/";
     public final static String IP = "http://47.93.31.35/";
 //    public final static String IP = "http://192.168.0.73:8080/";
-    //public final static String IP = "http://192.168.0.129/";
+ //   public final static String IP = "http://192.168.0.129/";
     //public final static String IP="http://10.170.13.113:8080/";
     //public final static String IP = "http://javaapp.gotoip2.com/";
     public final static String SERVER = IP + "ChinaBank/";
@@ -73,7 +73,9 @@ public class ConnectUtil {
     public final static String InviteMemberToGroup = CHAT + "InviteMemberToGroup";
 
     public final static String RecommendInstallment = API_HOST + "RecommendInstallment";
+    public final static String RecommendInstallmentNew = API_HOST + "RecommendInstallmentNew";
     public static String InstallmentWorkerMyPerformance = API_HOST + "InstallmentWorkerMyPerformance";
+    public static String GetNotExchangeScore = API_HOST + "GetNotExchangeScore";
     public final static String COMMON = SERVER + "Common/";
     public static String UploadHeadImage = COMMON + "UploadHeadPhoto";
     public final static String CHINA_BANK_BENEFIT = COMMON + "GetActivity";
