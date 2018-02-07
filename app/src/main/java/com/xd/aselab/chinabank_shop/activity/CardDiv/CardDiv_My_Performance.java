@@ -356,7 +356,7 @@ public class CardDiv_My_Performance extends Activity implements OnChartValueSele
                 score_exchanged.setText(myobj.getString("exchange_score"));
                 score_unchanged.setText(myobj.getString("not_exchange_score"));
                 Log.d("积分数", myobj.getString("score"));
-                Log.d("已兑换积分数", myobj.getString("exchange_score"));
+                Log.d("累计兑换积分数", myobj.getString("exchange_score"));
                 Log.d("未对换积分数", myobj.getString("not_exchange_score"));
             } else {
                 Toast.makeText(this, "网络连接失败", Toast.LENGTH_SHORT).show();
