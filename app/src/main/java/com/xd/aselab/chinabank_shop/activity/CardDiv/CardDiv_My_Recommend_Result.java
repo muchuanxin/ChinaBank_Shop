@@ -91,7 +91,7 @@ public class CardDiv_My_Recommend_Result extends AppCompatActivity {
 
                                 recommend_score.setText("累计获得" + score + "积分");
 
-                                exchange_score.setText("已兑换" + final_obj.getString("exchange_score") + "积分");
+                                exchange_score.setText("累计兑换" + final_obj.getString("exchange_score") + "积分");
 
                                 maybe_score.setText("本次预计获得" + final_obj.getString("this_score") + "积分");
                             } catch (JSONException e) {

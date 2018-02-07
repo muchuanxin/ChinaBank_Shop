@@ -262,7 +262,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30px"
                 android:layout_marginTop="5px"
-                android:text="已兑换的积分数："
+                android:text="累计兑换的积分数："
                 android:textColor="#6b6b6b"
                 android:textSize="16dp" />
 
@@ -288,7 +288,7 @@
                 android:layout_marginLeft="30px"
                 android:layout_marginTop="5px"
                 android:gravity="left"
-                android:text="未兑换的积分数："
+                android:text="累计未兑换的积分数："
                 android:textColor="#6b6b6b"
                 android:textSize="16dp" />
 
