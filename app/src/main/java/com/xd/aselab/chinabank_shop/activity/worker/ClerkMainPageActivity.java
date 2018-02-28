@@ -1,8 +1,13 @@
 package com.xd.aselab.chinabank_shop.activity.worker;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.PermissionChecker;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -156,9 +161,29 @@ public class ClerkMainPageActivity extends AppCompatActivity {
         cbNetwork.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(ClerkMainPageActivity.this, CBNetwork.class);
-                startActivity(intent);
+                if (Build.VERSION.SDK_INT >= 23) {
+
+                    //判断有没有定位权限
+                    if (PermissionChecker.checkSelfPermission(ClerkMainPageActivity.this,
+                            Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                            || PermissionChecker.checkSelfPermission(ClerkMainPageActivity.this,
+                            Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                        //请求定位权限
+                        ActivityCompat.requestPermissions(ClerkMainPageActivity.this,
+                                new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION }, 10012);
+                    }
+                    else {
+                        Intent intent = new Intent();
+                        intent.setClass(ClerkMainPageActivity.this, CBNetwork.class);
+                        startActivity(intent);
+                    }
+                }
+                else {
+                    Intent intent = new Intent();
+                    intent.setClass(ClerkMainPageActivity.this, CBNetwork.class);
+                    startActivity(intent);
+                }
+
             }
         });
 
@@ -172,6 +197,27 @@ public class ClerkMainPageActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    //定位权限获取回调
+    @Override
+    public void onRequestPermissionsResult(int requestCode,String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions,grantResults);
+        switch(requestCode) {
+            // requestCode即所声明的权限获取码，在checkSelfPermission时传入
+            case 10012:
+                if(grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // 获取到权限，作相应处理（调用定位SDK应当确保相关权限均被授权，否则可能引起定位失败）
+                    Intent intent = new Intent(ClerkMainPageActivity.this, CBNetwork.class);
+                    startActivity(intent);
+                } else{
+                    // 没有获取到权限，做特殊处理
+                    Toast.makeText(ClerkMainPageActivity.this, "请允许定位", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            default:
+                break;
+        }
     }
 
     @Override

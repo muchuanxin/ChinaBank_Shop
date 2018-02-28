@@ -98,6 +98,7 @@
             android:textColor="#9e9e9e" />
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/purchase"
             android:layout_width="wrap_content"
 

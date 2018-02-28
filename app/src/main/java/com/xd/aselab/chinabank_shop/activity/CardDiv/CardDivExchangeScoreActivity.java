@@ -1,5 +1,6 @@
 package com.xd.aselab.chinabank_shop.activity.CardDiv;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,7 +28,9 @@ public class CardDivExchangeScoreActivity extends AppCompatActivity {
     private TextView exchange_score;
     private SharePreferenceUtil sp;
     private ImageView back_btn;
+    private Button exchange;
 
+    private int not_exchange_score = 0;
 
     Handler handler = new Handler() {
         @Override
@@ -48,6 +52,7 @@ public class CardDivExchangeScoreActivity extends AppCompatActivity {
                             unexchange_score.setText(obj.getString("not_exchange_score"));
                             exchange_score.setText(obj.getString("exchange_score"));
 
+                            not_exchange_score = obj.getInt("not_exchange_score");
 
                         } else {
                             Toast.makeText(CardDivExchangeScoreActivity.this, obj.getString("message"), Toast.LENGTH_SHORT).show();
@@ -74,6 +79,23 @@ public class CardDivExchangeScoreActivity extends AppCompatActivity {
         exchange_score = (TextView) findViewById(R.id.exchange_score);
 
         back_btn = (ImageView) findViewById(R.id.back_btn);
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        exchange = (Button) findViewById(R.id.exchange);
+        exchange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CardDivExchangeScoreActivity.this, CardDivScoreShopActivity.class);
+                intent.putExtra("not_exchange_score", not_exchange_score);
+                startActivity(intent);
+            }
+        });
+
         new Thread() {
             @Override
             public void run() {
@@ -95,11 +117,5 @@ public class CardDivExchangeScoreActivity extends AppCompatActivity {
             }
         }.start();
 
-        back_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 }

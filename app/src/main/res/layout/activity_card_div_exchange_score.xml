@@ -12,7 +12,7 @@
         android:id="@+id/myInfo_status_background"
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:background="@drawable/navigation_bg"></RelativeLayout>
+        android:background="@drawable/navigation_bg"/>
 
     <RelativeLayout
         android:id="@+id/myInfo_nav_background"
@@ -160,10 +160,8 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/light_gray_line" />
 
- 
-
     <Button
-        android:id="@+id/exit"
+        android:id="@+id/exchange"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
