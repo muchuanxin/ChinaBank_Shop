@@ -226,7 +226,7 @@ public class CardDiv_My_Info_Info extends AppCompatActivity {
 //点击更换头像
 
                             Intent intent = new Intent(CardDiv_My_Info_Info.this, ChangePhotoActivity.class);
-                            intent.putExtra("jump","my_info");
+                            intent.putExtra("jump","personal_info");
                             startActivityForResult(intent,3);
 
                         }

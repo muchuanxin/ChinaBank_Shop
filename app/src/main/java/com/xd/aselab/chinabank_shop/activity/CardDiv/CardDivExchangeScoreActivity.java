@@ -96,13 +96,18 @@ public class CardDivExchangeScoreActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
         new Thread() {
             @Override
             public void run() {
                 super.run();
                 Message msg = handler.obtainMessage();
                 PostParameter post[] = new PostParameter[1];
-
 
                 post[0] = new PostParameter("account", sp.getAccount());
                 String jsonStr = ConnectUtil.httpRequest(ConnectUtil.GetNotExchangeScore, post, "POST");
@@ -116,6 +121,5 @@ public class CardDivExchangeScoreActivity extends AppCompatActivity {
                 handler.sendMessage(msg);
             }
         }.start();
-
     }
 }

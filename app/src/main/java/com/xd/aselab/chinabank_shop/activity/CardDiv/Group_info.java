@@ -196,7 +196,7 @@ public class Group_info extends AppCompatActivity {
                     Intent intent = new Intent(Group_info.this, ChangePhotoActivity.class);
                     intent.putExtra("jump", "group_head");
                     intent.putExtra("group_id", getIntent().getStringExtra("group_id"));
-                    intent.putExtra("head_image", getIntent().getStringExtra("head_image"));
+                    intent.putExtra("head_image", head_image);
                     startActivityForResult(intent, Constants.LOCAL_PHOTO);
                 }
             });
@@ -417,6 +417,7 @@ public class Group_info extends AppCompatActivity {
         if (resultCode == Activity.RESULT_OK) {
             ImageLoader loader = ImageLoader.getInstance();
             loader.loadBitmap(Group_info.this, sp.getGroup_Head_image(), group_image, R.drawable.default_head);
+            head_image = sp.getGroup_Head_image();
         }
     }
 
