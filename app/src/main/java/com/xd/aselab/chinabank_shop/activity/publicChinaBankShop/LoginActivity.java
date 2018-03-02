@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.umeng.analytics.MobclickAgent;
@@ -41,6 +42,7 @@ import com.xd.aselab.chinabank_shop.util.PostParameter;
 import com.xd.aselab.chinabank_shop.util.SharePreferenceUtil;
 import com.xd.aselab.chinabank_shop.Vos.Shopkeeper;
 import com.xd.aselab.chinabank_shop.util.ToastCustom;
+import com.xd.aselab.chinabank_shop.util.UpdateManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -202,6 +204,36 @@ public class LoginActivity extends AppCompatActivity {
                 case -1:
                     ToastCustom.makeToastCenter(getApplicationContext(), "网络连接失败");
                     break;
+                case 5:
+                    try {
+                        reCode = (String)msg.obj;
+                        if (reCode != null && !"{}".equals(reCode)) {
+                            JSONObject json = new JSONObject(reCode);
+                            String status = json.getString("status");
+                            if ("false".equals(status)) {
+                                Toast.makeText(LoginActivity.this, json.getString("message"), Toast.LENGTH_SHORT).show();
+                            } else if ("true".equals(status)) {
+                                String new_version = json.getString("version");
+                                if (new_version!=null && !"".equals(new_version)){
+                                    UpdateManager updateManager = UpdateManager.getUpdateManager();
+                                    updateManager.judgeAppUpdate(new_version,LoginActivity.this);
+                                }
+                                else {
+                                    Log.e("new_version","版本号为空串");
+                                }
+                            }
+                        }
+                        else if (reCode != null && "{}".equals(reCode)){
+                            Log.e("new_version","版本号为空null");
+                        }
+                        else {
+                            Log.e("connect","连接失败，未获取版本号");
+                        }
+                    }
+                    catch (Exception e){
+                        e.printStackTrace();
+                    }
+                    break;
                 default:
                     break;
 
@@ -351,6 +383,7 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     @Override
@@ -635,6 +668,20 @@ public class LoginActivity extends AppCompatActivity {
         super.onResume();
         initDatas();
         MobclickAgent.onResume(this);
+
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                PostParameter[] params = new PostParameter[1];
+                params[0] = new PostParameter("send", "version");
+                String reCode = ConnectUtil.httpRequest(ConnectUtil.GetShopClientVersion, params, ConnectUtil.POST);
+                Message msg = new Message();
+                msg.what = 5;
+                msg.obj = reCode;
+                handler.sendMessage(msg);
+            }
+        }.start();
     }
 
     public void onPause() {

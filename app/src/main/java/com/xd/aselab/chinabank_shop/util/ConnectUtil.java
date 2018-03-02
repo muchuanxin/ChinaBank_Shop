@@ -48,9 +48,9 @@ public class ConnectUtil {
 
 
     //public final static String IP = "http://www.juyunjinrongapp.com/";
-    public final static String IP = "http://47.93.31.35/";
+    //public final static String IP = "http://47.93.31.35/";
 //    public final static String IP = "http://192.168.0.73:8080/";
- //   public final static String IP = "http://192.168.0.129/";
+    public final static String IP = "http://192.168.0.129/";
     //public final static String IP="http://10.170.13.113:8080/";
     //public final static String IP = "http://javaapp.gotoip2.com/";
     public final static String SERVER = IP + "ChinaBank/";
@@ -59,8 +59,8 @@ public class ConnectUtil {
     public final static String CHAT = SERVER + "Chat/";
     public final static String API_Chat = SERVER+"Chat/";
 
+    public final static String API_HOST_DOWNLOAD = SERVER + "download/";
     public final static String API_HOST_IMAGE = API_HOST + "images/";
-    public final static String API_HOST_DOWNLOAD = API_HOST + "download/";
     public final static String RelieveWorker = API_HOST + "RelieveWorker";
     public final static String CreateChatGroup = CHAT + "CreateChatGroup";
     public final static String GetMyCreateGroup = CHAT + "GetMyCreateGroup";
@@ -100,6 +100,7 @@ public class ConnectUtil {
     public static String WORKER_CHANGE_PSW = API_HOST + "WorkerChangerPsw";
     public static String WORKER_CHANGE_TEL = API_HOST + "WorkerChangeTel";
     public static String GET_ACCOUNT_TYPE = API_HOST + "GetAccountType";
+    public static String GetShopClientVersion = API_HOST + "GetShopClientVersion";
     public static String Installment_Worker_My_Recommend_List = API_HOST + "InstallmentWorkerMyRecommendList";
     //全部营业员业绩
     public static String GET_MY_WORKER = API_HOST + "GetMyWorker";
