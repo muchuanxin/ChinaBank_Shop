@@ -72,8 +72,7 @@ public class CardDivScoreShopActivity extends AppCompatActivity {
 
         SharePreferenceUtil sp = new SharePreferenceUtil(CardDivScoreShopActivity.this, "user");
         account = sp.getAccount();
-        //score = getIntent().getIntExtra("not_exchange_score", 0);
-        score = 10000;
+        score = getIntent().getIntExtra("not_exchange_score", 0);
         noString = generate6RandomNumber();
         String sign_content = "appsecret="+ EncryptUtils.AppSecret+"&nostring="+noString+"&score="+score+"&uid="+account;
         sign = Encode.getEncode("MD5", sign_content);

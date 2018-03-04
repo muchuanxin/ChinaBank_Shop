@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.xd.aselab.chinabankmanager.activity.ChangePhotoActivity">
+    tools:context="com.xd.aselab.chinabank_shop.activity.CardDiv.ChangePhotoActivity">
 
     <RelativeLayout
         android:id="@+id/act_change_head_photo_top_bar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="65dp"
         android:orientation="horizontal"
-        android:background="#B81C1E">
+        android:background="@drawable/navigation_bg">
 
         <RelativeLayout
             android:id="@+id/act_change_head_photo_back_btn"
@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="28dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="28dp"
                 android:src="@drawable/back_btn_bg"/>
 
         </RelativeLayout>
@@ -31,7 +31,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="25dp"
             android:layout_centerHorizontal="true"
             android:textColor="#fff"
             android:textSize="22dp"
@@ -42,7 +42,7 @@
             android:padding="7dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginTop="17dp"
+            android:layout_marginTop="22dp"
             android:layout_marginRight="15dp"
             android:layout_alignParentRight="true"
             android:textSize="18dp"

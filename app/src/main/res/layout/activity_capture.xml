@@ -6,8 +6,39 @@
     android:layout_height="match_parent"
     tools:context="com.xd.aselab.chinabank_shop.activity.publicChinaBankShop.CaptureActivity">
 
+    <RelativeLayout
+        android:id="@+id/CaptureActivity_title"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@drawable/navigation_bg"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/capture_back_btn"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/back_btn_bg"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/textViewLabel"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:textColor="#fff"
+            android:textSize="20dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:text="扫一扫"/>
+
+    </RelativeLayout>
+
     <cn.bingoogolapple.qrcode.zxing.ZXingView
         android:id="@+id/zxingview"
+        android:layout_below="@id/CaptureActivity_title"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         app:qrcv_animTime="1000"
@@ -20,7 +51,7 @@
         app:qrcv_cornerSize="3dp"
         app:qrcv_customScanLineDrawable="@null"
         app:qrcv_isBarcode="false"
-        app:qrcv_isCenterVertical="true"
+        app:qrcv_isCenterVertical="false"
         app:qrcv_isOnlyDecodeScanBoxArea="false"
         app:qrcv_isScanLineReverse="true"
         app:qrcv_isShowDefaultGridScanLineDrawable="false"
@@ -37,6 +68,6 @@
         app:qrcv_tipTextColor="@android:color/white"
         app:qrcv_tipTextSize="12sp"
         app:qrcv_toolbarHeight="56dp"
-        app:qrcv_topOffset="20dp"/>
+        app:qrcv_topOffset="100dp"/>
 
 </RelativeLayout>

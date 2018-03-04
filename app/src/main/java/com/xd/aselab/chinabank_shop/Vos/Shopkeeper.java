@@ -17,7 +17,7 @@ public class Shopkeeper {
     private String scounty;
     private String sstreet;
     private String sindustryType;
-    private String smanagerAccount;//基层经理工号
+    private String smanagerAccount;//银行卡客户经理工号
     private String smanagerTel;
     private String stype;
     private String scookie;
