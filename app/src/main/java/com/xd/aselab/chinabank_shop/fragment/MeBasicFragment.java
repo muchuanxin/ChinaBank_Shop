@@ -79,7 +79,7 @@ public class MeBasicFragment extends Fragment {
         user_name.setText(sp.getWorkerName());
         head_photo = (ImageView) root.findViewById(R.id.dafault_head);
         imageLoader = ImageLoader.getInstance();
-        imageLoader.loadBitmap(getActivity(), sp.getHead_image(), head_photo, R.drawable.portrait);
+        imageLoader.loadBitmap(getActivity(), sp.getHead_image(), head_photo, R.drawable.final_head);
 
 
 

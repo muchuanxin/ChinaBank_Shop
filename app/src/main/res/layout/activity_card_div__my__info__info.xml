@@ -77,14 +77,13 @@
             android:layout_marginTop="10dp"
             android:background="#fff">
 
-            <ImageView
+            <com.xd.aselab.chinabank_shop.activity.CardDiv.CircleImageView
                 android:id="@+id/image"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginBottom="15dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="15dp"
-                android:src="@drawable/default_head" />
+
+              android:layout_marginLeft="30dp"
+                android:src="@drawable/final_head" />
 
             <TextView
                 android:id="@+id/user_name"

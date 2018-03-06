@@ -228,14 +228,14 @@
             android:background="#fff"
             android:orientation="horizontal">
 
-            <ImageView
+            <com.xd.aselab.chinabank_shop.activity.CardDiv.CircleImageView
                 android:id="@+id/dafault_head"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="15dp"
 
-                android:src="@drawable/default_head" />
+                android:src="@drawable/final_head" />
 
             <TextView
                 android:id="@+id/user_name"

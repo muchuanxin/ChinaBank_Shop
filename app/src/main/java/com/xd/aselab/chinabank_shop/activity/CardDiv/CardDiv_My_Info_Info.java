@@ -60,7 +60,7 @@ public class CardDiv_My_Info_Info extends AppCompatActivity {
     private LinearLayout my_psw_row;
     private LinearLayout type_row;
     private Uri imageUri;
-    private ImageView image;
+    private CircleImageView image;
     private TextView exit;
     private TextView user_name;
     private ImageLoader imageLoader;
@@ -92,10 +92,27 @@ public class CardDiv_My_Info_Info extends AppCompatActivity {
         label_shop_psw= (TextView) findViewById(R.id.label_shop_psw);
         label_shop_type= (TextView) findViewById(R.id.label_shop_type);
         sp = new SharePreferenceUtil(CardDiv_My_Info_Info.this, "user");
-        image = (ImageView) findViewById(R.id.image);
+        image = (CircleImageView) findViewById(R.id.image);
         imageLoader = ImageLoader.getInstance();
 
-        imageLoader.loadBitmap(CardDiv_My_Info_Info.this, sp.getHead_image(), image, R.drawable.portrait);
+
+        //---------------------------------------
+        Log.d("Dorise",sp.getPhotoUrl()+"");
+        imageLoader.loadBitmap(CardDiv_My_Info_Info.this, sp.getHead_image(), image, R.drawable.final_head);
+
+
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+//点击更换头
+                Intent intent = new Intent(CardDiv_My_Info_Info.this, ChangePhotoActivity.class);
+                intent.putExtra("jump","personal_info");
+                startActivityForResult(intent,3);
+
+            }
+        });
+
 
     }
 
@@ -181,6 +198,10 @@ public class CardDiv_My_Info_Info extends AppCompatActivity {
         act_my_info_update = (TextView) findViewById(R.id.act_my_info_update);
         my_psw_row = (LinearLayout) findViewById(R.id.my_psw_row);
         type_row = (LinearLayout) findViewById(R.id.type_row);
+
+
+
+
         act_my_info_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -194,7 +215,7 @@ public class CardDiv_My_Info_Info extends AppCompatActivity {
 
                     my_psw_row.setOnClickListener(null);
                     type_row.setOnClickListener(null);
-                    image.setOnClickListener(null);
+//                    image.setOnClickListener(null);
 
                 } else {
                     act_my_info_update.setText("完成");
@@ -219,18 +240,7 @@ public class CardDiv_My_Info_Info extends AppCompatActivity {
                     });
 
 
-                    image.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
 
-//点击更换头像
-
-                            Intent intent = new Intent(CardDiv_My_Info_Info.this, ChangePhotoActivity.class);
-                            intent.putExtra("jump","personal_info");
-                            startActivityForResult(intent,3);
-
-                        }
-                    });
 
                 }
             }
