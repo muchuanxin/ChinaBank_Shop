@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.xd.aselab.chinabank_shop.R;
 import com.xd.aselab.chinabank_shop.Vos.MyWorkersInfoVo;
-import com.xd.aselab.chinabank_shop.util.AsynLoaderPic;
 
 import java.util.ArrayList;
 

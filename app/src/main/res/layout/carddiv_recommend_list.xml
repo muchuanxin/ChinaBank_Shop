@@ -82,7 +82,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="2dp"
             android:textSize="14dp"
-            android:text="分期金额：10.37万元"
+            android:text="分期金额(万元)：10.37"
             android:textColor="#9e9e9e" />
 
         <TextView
@@ -124,7 +124,7 @@
                 android:layout_height="22dp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="2dp"
-                android:text="分期数：1"
+                android:text="分期数(月)：1"
                 android:textColor="#9e9e9e" />
 
             <TextView

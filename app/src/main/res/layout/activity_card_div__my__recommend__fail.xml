@@ -135,7 +135,7 @@
                 android:textSize="16dp"
 
                 android:maxLength="12"
-                android:text="分期数：" />
+                android:text="分期数(月)：" />
 
             <EditText
                 android:id="@+id/mun"

@@ -214,8 +214,8 @@ public class CardDiv_My_Recommend_List extends AppCompatActivity {
             viewHolder.time_viewholder.setText(mymap.get("time") + "");
             viewHolder.tel.setText("联系电话：" + mymap.get("telephone") + "");
             DecimalFormat df = new DecimalFormat("#0.00");
-            viewHolder.div_money.setText("分期金额：" + df.format(Double.valueOf(String.valueOf(mymap.get("money")))) + "万元");
-            viewHolder.div_mun.setText("分期数：" + mymap.get("installment_num") + "");
+            viewHolder.div_money.setText("分期金额(万元)：" + df.format(Double.valueOf(String.valueOf(mymap.get("money")))) );
+            viewHolder.div_mun.setText("分期数(月)：" + mymap.get("installment_num") );
 //            viewHolder.purchase.setText("汽车品牌：" + mymap.get("car_type") + "");
 //            viewHolder.evaluation.setText("预授信评分：" + mymap.get("evaluation") + "");
             viewHolder.image.setOnClickListener(new View.OnClickListener() {
@@ -259,7 +259,7 @@ public class CardDiv_My_Recommend_List extends AppCompatActivity {
             } else if (mymap.get("confirm").equals("NO")) {
                 viewHolder.confirm.setText("已拒绝");
             } else if (mymap.get("confirm").equals("SUCCESS")) {
-                viewHolder.confirm.setText("业务成功");
+                viewHolder.confirm.setText("已放款");
 
             }
 

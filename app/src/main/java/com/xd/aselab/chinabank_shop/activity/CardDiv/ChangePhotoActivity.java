@@ -125,7 +125,7 @@ public class ChangePhotoActivity extends AppCompatActivity implements ImageSetti
                                         //.withAspectRatio()// int 裁剪比例 如16:9 3:2 3:4 1:1 可自定义
                                         .hideBottomControls(true)// 是否显示uCrop工具栏，默认不显示 true or false
                                         .isGif(true)// 是否显示gif图片 true or false
-                                        .compressSavePath(getFilePath())//压缩图片保存地址
+                                        .compressSavePath(getCompressImagePath())//压缩图片保存地址
                                         //.freeStyleCropEnabled()// 裁剪框是否可拖拽 true or false
                                         //.circleDimmedLayer()// 是否圆形裁剪 true or false
                                         //.showCropFrame()// 是否显示裁剪矩形边框 圆形裁剪时建议设为false   true or false
@@ -169,7 +169,7 @@ public class ChangePhotoActivity extends AppCompatActivity implements ImageSetti
                                         //.withAspectRatio()// int 裁剪比例 如16:9 3:2 3:4 1:1 可自定义
                                         .hideBottomControls(true)// 是否显示uCrop工具栏，默认不显示 true or false
                                         //.isGif(true)// 是否显示gif图片 true or false
-                                        .compressSavePath(getFilePath())//压缩图片保存地址
+                                        .compressSavePath(getCompressImagePath())//压缩图片保存地址
                                         //.freeStyleCropEnabled()// 裁剪框是否可拖拽 true or false
                                         //.circleDimmedLayer()// 是否圆形裁剪 true or false
                                         //.showCropFrame()// 是否显示裁剪矩形边框 圆形裁剪时建议设为false   true or false
@@ -238,8 +238,6 @@ public class ChangePhotoActivity extends AppCompatActivity implements ImageSetti
         for (int i=0; i<selectList.size(); i++) {
             final LocalMedia media = selectList.get(i);
             Log.e("图片------", media.getPath());
-            final String[] temp = media.getPath().split("\\.");
-            //Log.e("temp.length", ""+temp.length);
             final int finalI = i;
 
             new Thread(){
@@ -252,17 +250,21 @@ public class ChangePhotoActivity extends AppCompatActivity implements ImageSetti
                     if (getIntent().getStringExtra("jump").equals("personal_info")) {
                         postParams[0] = new PostParameter("account", spu.getAccount());
                         postParams[1] = new PostParameter("type", "worker_2");
-                        InputStream is = ImageSettingUtil.compressJPG(media.getPath());
+                        InputStream is = null;
                         if (media.isCompressed())
                             is = ImageSettingUtil.compressJPG(media.getCompressPath());
+                        else
+                            is = ImageSettingUtil.compressJPG(media.getPath());
                         ImageSettingUtil.uploadImage(ChangePhotoActivity.this, finalI, postParams, is, Constants.uploadHeadImage);
 
                     } else if (getIntent().getStringExtra("jump").equals("group_head")) {
                         postParams[0] = new PostParameter("account", spu.getAccount());
                         postParams[1] = new PostParameter("group_id", getIntent().getStringExtra("group_id") + "");
-                        InputStream is = ImageSettingUtil.compressJPG(media.getPath());
+                        InputStream is = null;
                         if (media.isCompressed())
                             is = ImageSettingUtil.compressJPG(media.getCompressPath());
+                        else
+                            is = ImageSettingUtil.compressJPG(media.getPath());
                         ImageSettingUtil.uploadImage(ChangePhotoActivity.this, finalI, postParams, is, Constants.ChangeGroupHeadPhoto);
 
                     }
@@ -350,7 +352,7 @@ public class ChangePhotoActivity extends AppCompatActivity implements ImageSetti
 
     }
 
-    private String getFilePath()
+    private String getCompressImagePath()
     {
         String filePath="";
         File appCacheDir=null;
