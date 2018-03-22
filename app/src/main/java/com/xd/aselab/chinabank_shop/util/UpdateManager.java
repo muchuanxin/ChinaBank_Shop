@@ -1,5 +1,7 @@
 package com.xd.aselab.chinabank_shop.util;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -10,9 +12,13 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.FileProvider;
+import android.support.v4.content.PermissionChecker;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -130,7 +136,18 @@ public class UpdateManager {
 			e.printStackTrace();
 		}
 		if (!current_version.equals(new_version)){
-            showNoticeDialog();
+			if (Build.VERSION.SDK_INT >= 23) {
+				//判断有没有权限
+				if (PermissionChecker.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE ) != PackageManager.PERMISSION_GRANTED ) {
+					ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE }, 10012);
+				}
+				else {
+					showNoticeDialog();
+				}
+			}
+			else {
+				showNoticeDialog();
+			}
 		}
         else {
             System.out.println("已经是最新版本");
@@ -300,10 +317,19 @@ public class UpdateManager {
         if (!apkfile.exists()) {
             return;
         }
-        Uri localUri = Uri.fromFile(new File(apkFilePath));
-        Intent localIntent = new Intent("android.intent.action.VIEW");
-        localIntent.setDataAndType(localUri, "application/vnd.android.package-archive");
-        localIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		Intent localIntent = new Intent(Intent.ACTION_VIEW);
+		//判断版本是否在7.0以上
+		if (Build.VERSION.SDK_INT >= 24) {
+			//provider authorities
+			Uri apkUri = FileProvider.getUriForFile(mContext, "com.mydomain.fileprovider", apkfile);
+			//Granting Temporary Permissions to a URI
+			localIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+			localIntent.setDataAndType(apkUri, "application/vnd.android.package-archive");
+		} else {
+			Uri apkUri = Uri.fromFile(apkfile);
+			localIntent.setDataAndType(apkUri, "application/vnd.android.package-archive");
+			localIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		}
         mContext.startActivity(localIntent);
 	}
 }

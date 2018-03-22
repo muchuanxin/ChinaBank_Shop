@@ -1,5 +1,6 @@
 package com.xd.aselab.chinabank_shop.activity.CardDiv;
 
+import android.net.http.SslError;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -69,6 +71,10 @@ public class CardDivScoreShopActivity extends AppCompatActivity {
         webSettings.setLoadsImagesAutomatically(true); //支持自动加载图片
         webSettings.setDefaultTextEncodingName("utf-8");//设置编码格式
 
+        //解决HTTPS图片不显示的问题
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
 
         SharePreferenceUtil sp = new SharePreferenceUtil(CardDivScoreShopActivity.this, "user");
         account = sp.getAccount();
@@ -78,10 +84,14 @@ public class CardDivScoreShopActivity extends AppCompatActivity {
         sign = Encode.getEncode("MD5", sign_content);
 
         try {
-            String account_encrypt = EncryptUtils.encrypt(EncryptUtils.AppKey, account.getBytes());
-            String score_encrypt = EncryptUtils.encrypt(EncryptUtils.AppKey, (""+score).getBytes());
+            String account_encrypt = EncryptUtils.encrypt(EncryptUtils.AppKey, account.getBytes("UTF-8"));
+            String score_encrypt = EncryptUtils.encrypt(EncryptUtils.AppKey, (""+score).getBytes("UTF-8"));
 
-            String url = "http://jifen.koudaiqifu.cn/1000424?uid="+account_encrypt+"&score="+score_encrypt+"&nostring="+noString+"&sign="+sign;
+            //测试url
+            //String url = "http://jifen.koudaiqifu.cn/1000424?uid="+account_encrypt+"&score="+score_encrypt+"&nostring="+noString+"&sign="+sign;
+
+            //正式url
+            String url = "https://jifen.fxqifu.com/1000229?uid="+account_encrypt+"&score="+score_encrypt+"&nostring="+noString+"&sign="+sign;
             webView.loadUrl(url);
 
             Log.e("account", account);
@@ -104,6 +114,13 @@ public class CardDivScoreShopActivity extends AppCompatActivity {
                 view.loadUrl(url);
                 return true;
             }
+
+            //解决HTTPS图片不显示的问题
+            @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error){
+                handler.proceed(); // 接受网站证书
+            }
+
         });
 
     }

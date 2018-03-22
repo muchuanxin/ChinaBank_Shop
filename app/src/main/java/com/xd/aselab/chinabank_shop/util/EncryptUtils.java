@@ -15,8 +15,13 @@ import android.util.Base64;
 
 public class EncryptUtils {
 
-    public static final String AppKey = "Eyt57BCZ2RiQ9CDx";
-    public static final String AppSecret = "ZeteLs3fNBr5";
+    //测试
+    //public static final String AppKey = "Eyt57BCZ2RiQ9CDx";
+    //public static final String AppSecret = "ZeteLs3fNBr5";
+
+    //正式
+    public static final String AppKey = "bAaq4mz6abFuP7K5";
+    public static final String AppSecret = "iE55JJWc4zhl";
 
     private static void example() {
         String key = "shZHh9Qy4zCe7RKV";

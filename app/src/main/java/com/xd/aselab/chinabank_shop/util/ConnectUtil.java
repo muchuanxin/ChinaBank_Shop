@@ -47,10 +47,10 @@ public class ConnectUtil {
     //public final static String API_HOST = "http://javaapp.gotoip2.com/ChinaBank/Shop/";
 
 
-    //public final static String IP = "http://www.juyunjinrongapp.com/";
+    public final static String IP = "http://www.juyunjinrongapp.com/";
     //public final static String IP = "http://47.93.31.35/";
 //    public final static String IP = "http://192.168.0.73:8080/";
-    public final static String IP = "http://192.168.0.129/";
+    //public final static String IP = "http://192.168.0.129/";
     //public final static String IP="http://10.170.13.113:8080/";
     //public final static String IP = "http://javaapp.gotoip2.com/";
     public final static String SERVER = IP + "ChinaBank/";
