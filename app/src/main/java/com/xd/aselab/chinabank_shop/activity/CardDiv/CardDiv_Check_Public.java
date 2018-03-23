@@ -74,7 +74,7 @@ private SharePreferenceUtil sp;
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
         exit= (ImageView) findViewById(R.id.exit);
-sp=new SharePreferenceUtil(CardDiv_Check_Public.this,"user");
+        sp=new SharePreferenceUtil(CardDiv_Check_Public.this,"user");
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

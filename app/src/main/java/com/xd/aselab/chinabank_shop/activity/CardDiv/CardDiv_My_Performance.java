@@ -430,7 +430,7 @@ public class CardDiv_My_Performance extends Activity implements OnChartValueSele
                     yVals2.add(new BarEntry(i, numbers[i - 1]));
                     break;
                 default:
-                    yVals1.add(new BarEntry(i, (float) 0.00));
+                    yVals1.add(new BarEntry(i, (float) 0.0000));
                     yVals2.add(new BarEntry(i, 0));
                     break;
             }

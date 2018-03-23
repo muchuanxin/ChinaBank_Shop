@@ -213,7 +213,7 @@ public class CardDiv_My_Recommend_List extends AppCompatActivity {
             viewHolder.name_viewholder.setText(mymap.get("applicant") + "");
             viewHolder.time_viewholder.setText(mymap.get("time") + "");
             viewHolder.tel.setText("联系电话：" + mymap.get("telephone") + "");
-            DecimalFormat df = new DecimalFormat("#0.00");
+            DecimalFormat df = new DecimalFormat("#0.0000");
             viewHolder.div_money.setText("分期金额：" + df.format(Double.valueOf(String.valueOf(mymap.get("money")))) +"万元");
             viewHolder.div_mun.setText("分期数：" + mymap.get("installment_num") +"月");
 //            viewHolder.purchase.setText("汽车品牌：" + mymap.get("car_type") + "");

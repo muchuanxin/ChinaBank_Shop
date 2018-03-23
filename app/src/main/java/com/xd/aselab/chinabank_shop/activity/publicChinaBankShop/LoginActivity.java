@@ -1,14 +1,19 @@
 
 package com.xd.aselab.chinabank_shop.activity.publicChinaBankShop;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.PermissionChecker;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -363,9 +368,20 @@ public class LoginActivity extends AppCompatActivity {
         btnShopRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(LoginActivity.this, CaptureActivity.class);
-                startActivityForResult(intent, 0);
+                if (Build.VERSION.SDK_INT >= 23) {
+                    //判断有没有权限
+                    if (PermissionChecker.checkSelfPermission(LoginActivity.this, Manifest.permission.CAMERA ) != PackageManager.PERMISSION_GRANTED ) {
+                        ActivityCompat.requestPermissions((Activity) LoginActivity.this, new String[]{Manifest.permission.CAMERA }, 10012);
+                    }
+                    else {
+                        Intent intent = new Intent(LoginActivity.this, CaptureActivity.class);
+                        startActivityForResult(intent, 0);
+                    }
+                }
+                else {
+                    Intent intent = new Intent(LoginActivity.this, CaptureActivity.class);
+                    startActivityForResult(intent, 0);
+                }
 
             }
         });
@@ -384,6 +400,28 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+
+    //定位权限获取回调
+    @Override
+    public void onRequestPermissionsResult(int requestCode,String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions,grantResults);
+        switch(requestCode) {
+            // requestCode即所声明的权限获取码，在checkSelfPermission时传入
+            case 10012:
+                if(grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // 获取到权限，作相应处理（调用定位SDK应当确保相关权限均被授权，否则可能引起定位失败）
+                    Intent intent = new Intent(LoginActivity.this, CaptureActivity.class);
+                    startActivity(intent);
+                } else{
+                    // 没有获取到权限，做特殊处理
+                    Toast.makeText(LoginActivity.this, "请开启摄像头权限", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
@@ -457,19 +495,19 @@ public class LoginActivity extends AppCompatActivity {
 
                         } else {
                             msg.what = 5;
-                            msg.obj = "暂时不能加盟";
+                            msg.obj = "服务器异常，请重试";
                         }
 
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                         msg.what = 4;
-                        msg.obj = "出现未知错误";
+                        msg.obj = "出现错误，请重试";
                     }
 
                 } else {
                     msg.what = 2;
-                    msg.obj = "暂时不能加盟";
+                    msg.obj = "网络连接异常，请检查您的网络设置";
                 }
                 handler.sendMessage(msg);
             }

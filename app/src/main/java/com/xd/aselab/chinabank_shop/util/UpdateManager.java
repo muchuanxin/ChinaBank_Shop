@@ -261,7 +261,7 @@ public class UpdateManager {
 				InputStream is = conn.getInputStream();
 				
 				//显示文件大小格式：2个小数点显示
-		    	DecimalFormat df = new DecimalFormat("0.00");
+		    	DecimalFormat df = new DecimalFormat("#0.00");
 		    	//进度条下面显示的总文件大小
 		    	apkFileSize = df.format((float) length / 1024 / 1024) + "MB";
 				
