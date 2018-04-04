@@ -1,4 +1,4 @@
-﻿package com.xd.aselab.chinabank_shop.activity.shop;
+package com.xd.aselab.chinabank_shop.activity.shop;
 
 import android.Manifest;
 import android.app.AlertDialog;
