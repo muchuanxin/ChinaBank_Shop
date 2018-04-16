@@ -650,11 +650,14 @@ public class ChatActivity extends AppCompatActivity implements ImageSettingUtil.
                     for (int i=0; i<selectList.size(); i++) {
                         final LocalMedia media = selectList.get(i);
                         Log.e("视频------", media.getPath());
+                        String path = null;
                         String[] temp = null;
                         if (media.isCompressed()){
+                            path = media.getCompressPath();
                             temp = media.getCompressPath().split("\\.");
                         }
                         else {
+                            path = media.getPath();
                             temp = media.getPath().split("\\.");
                         }
                         //Log.e("temp.length", ""+temp.length);
@@ -664,7 +667,7 @@ public class ChatActivity extends AppCompatActivity implements ImageSettingUtil.
 
                         LocalMediaConfig.Buidler buidler = new LocalMediaConfig.Buidler();
                         final LocalMediaConfig config = buidler
-                                .setVideoPath(media.getPath())
+                                .setVideoPath(path)
                                 .captureThumbnailsTime(1)
                                 .doH264Compress(new AutoVBRMode())
                                 .setFramerate(10)
@@ -751,7 +754,7 @@ public class ChatActivity extends AppCompatActivity implements ImageSettingUtil.
         //Log.e("getFilePath", filePath);
         JianXiCamera.setVideoCachePath(filePath);
         // 初始化拍摄，遇到问题可选择开启此标记，以方便生成日志
-        JianXiCamera.initialize(false,null);
+        JianXiCamera.initialize(true,null);
     }
 
     private void copyFile(File source, File dest){
