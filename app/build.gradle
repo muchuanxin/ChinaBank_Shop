@@ -9,6 +9,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 25
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
         multiDexEnabled true
 
         ndk {

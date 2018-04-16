@@ -261,6 +261,9 @@ public class CardDiv_My_Recommend_List extends AppCompatActivity {
             } else if (mymap.get("confirm").equals("SUCCESS")) {
                 viewHolder.confirm.setText("已放款");
 
+            }else if (mymap.get("confirm").equals("FAIL")) {
+                viewHolder.confirm.setText("不通过");
+
             }
 
             return myview;
