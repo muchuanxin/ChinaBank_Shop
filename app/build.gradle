@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 25
     buildToolsVersion "25.0.2"
 
     defaultConfig {
         applicationId "com.xd.aselab.chinabank_shop"
         minSdkVersion 16
-        targetSdkVersion 26
+        targetSdkVersion 25
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
         multiDexEnabled true
@@ -46,7 +46,7 @@ dependencies {
     //noinspection GradleCompatible
     compile 'com.android.support:appcompat-v7:25.4.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:support-v4:26.1.0'
+    compile 'com.android.support:support-v4:25.4.0'
     testCompile 'junit:junit:4.12'
     //极光推送
     compile 'cn.jiguang.sdk:jpush:3.0.9'
