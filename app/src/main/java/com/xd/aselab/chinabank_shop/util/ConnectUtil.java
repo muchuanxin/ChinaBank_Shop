@@ -48,10 +48,10 @@ public class ConnectUtil {
 
     //public final static String IP = "http://192.168.0.27:8080/";
 
-   // public final static String IP = "http://www.juyunjinrongapp.com/";
+    public final static String IP = "http://www.juyunjinrongapp.com/";
     //public final static String IP = "http://47.93.31.35/";
 //    public final static String IP = "http://192.168.0.73:8080/";
-   public final static String IP = "http://192.168.0.27:8080/";
+   //public final static String IP = "http://192.168.0.27:8080/";
     //public final static String IP = "http://192.168.0.129/";
     //public final static String IP="http://10.170.13.113:8080/";
     //public final static String IP = "http://javaapp.gotoip2.com/";
@@ -77,6 +77,10 @@ public class ConnectUtil {
     public final static String RecommendInstallment = API_HOST + "RecommendInstallment";
     public final static String RecommendInstallmentNew = API_HOST + "RecommendInstallmentNew";
     public static String InstallmentWorkerMyPerformance = API_HOST + "InstallmentWorkerMyPerformance";
+    public static String LobbyMyPerformance = API_HOST + "LobbyMyPerformance";
+    public static String LobbyMyRecommendList = API_HOST + "LobbyMyRecommendList";
+    public static String LobbyRecommendApplyCard = API_HOST + "LobbyRecommendApplyCard";
+    public static String SetLobbySecureQuestion = API_HOST + "SetLobbySecureQuestion";
     public static String GetNotExchangeScore = API_HOST + "GetNotExchangeScore";
     public final static String COMMON = SERVER + "Common/";
     public static String UploadHeadImage = COMMON + "UploadHeadPhoto";
@@ -115,6 +119,8 @@ public class ConnectUtil {
     public static String GetHistoryChatLog = API_Chat+"GetHistoryChatLog";
     public static String GroupChat = API_Chat+"GroupChat";
     public static String GetGroupHistoryChatLog = API_Chat+"GetGroupHistoryChatLog";
+
+    //大堂助理
 
     public static String httpRequest(String url, PostParameter[] postParams, String httpMethod) {
         InputStream input = null;

@@ -11,12 +11,12 @@
 
     <TextView
         android:id="@+id/recommend_num"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="30dp"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="您本月累计推荐业务"/>
+
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="35dp"
+        android:text="您本月累计推荐业务" />
     <TextView
         android:id="@+id/recommend_score"
         android:layout_marginTop="20dp"

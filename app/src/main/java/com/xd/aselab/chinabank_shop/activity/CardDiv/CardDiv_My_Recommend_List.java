@@ -186,6 +186,7 @@ public class CardDiv_My_Recommend_List extends AppCompatActivity {
             return i;
         }
 
+
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
             View myview;

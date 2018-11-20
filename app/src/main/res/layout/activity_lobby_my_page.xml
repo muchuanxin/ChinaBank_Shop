@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eaeeef">
+
+    <RelativeLayout
+        android:id="@+id/shop_my_management_status_bg"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/navigation_bg"/>
+
+    <RelativeLayout
+        android:id="@+id/shop_my_management_nav_bag"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@id/shop_my_management_status_bg"
+        android:background="@drawable/navigation_bg">
+
+        <RelativeLayout
+            android:id="@+id/shop_my_management_back_btn"
+            android:layout_width="45dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/return_button"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/back_btn_bg"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:text="我的"
+            android:textColor="#fff"
+            android:textSize="24dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/myhead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/shop_my_management_nav_bag"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:id="@+id/my_info_row"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@id/shop_my_management_nav_bag"
+            android:layout_marginTop="10dp"
+            android:background="#fff"
+            android:orientation="horizontal">
+
+            <com.xd.aselab.chinabank_shop.activity.CardDiv.CircleImageView
+                android:id="@+id/dafault_head"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/final_head" />
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:gravity="center_vertical|end"
+                android:text="大堂助理"
+                android:textAlignment="textEnd"
+                android:textSize="20dp" />
+
+            <ImageView
+                android:id="@+id/right"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:src="@drawable/right" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/exchange_score_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/myhead"
+        android:layout_marginTop="2dp"
+        android:background="#fff">
+
+        <ImageView
+            android:id="@+id/image3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/announcement" />
+
+        <TextView
+            android:id="@+id/unexchange_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/image2"
+            android:textSize="14dp"
+            android:layout_weight="20"
+            android:text="积分兑换" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:src="@drawable/right" />
+    </LinearLayout>
+
+
+</RelativeLayout>

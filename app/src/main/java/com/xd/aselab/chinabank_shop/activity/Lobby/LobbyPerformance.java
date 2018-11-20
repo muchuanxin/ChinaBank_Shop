@@ -1,19 +1,14 @@
-package com.xd.aselab.chinabank_shop.activity.CardDiv;
+package com.xd.aselab.chinabank_shop.activity.Lobby;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.media.Image;
+import android.os.Build;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-
-
-import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -21,7 +16,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Legend;
@@ -29,18 +23,19 @@ import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.LargeValueFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.xd.aselab.chinabank_shop.R;
+import com.xd.aselab.chinabank_shop.activity.CardDiv.CustomPopupWindow;
 import com.xd.aselab.chinabank_shop.util.ConnectUtil;
 import com.xd.aselab.chinabank_shop.util.MyMarkerView;
 import com.xd.aselab.chinabank_shop.util.PostParameter;
 import com.xd.aselab.chinabank_shop.util.SharePreferenceUtil;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -49,74 +44,61 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class CardDiv_My_Performance extends Activity implements OnChartValueSelectedListener {
-    private TextView success_recommend;
-    private TextView worker_timeSelect;
+public class LobbyPerformance extends Activity implements OnChartValueSelectedListener {
+
+    private TextView lobby_timeSelect;
+    private TextView recommend_num;
     private TextView success_num;
-    private TextView success_money;
-    private TextView score_inall;
+    private TextView score;
+    private TextView exchanged_score;
+    private TextView not_exchanged_score;
     private TextView name;
-    private TextView score_exchanged;
-    private TextView score_unchanged;
     private ImageView return_button;
 
-    private boolean flag;
-    private String beginTime;
-    private String endTime;
-    private SimpleDateFormat sdf;
-    private SharePreferenceUtil sp;
-
-    private int recommend_number = 0;
-    private int success_number = 0;
-    private int success_getmoney = 0;
-    private int getscore = 0;
-    private int exchanged_getscore = 0;
-    private int unexchanged_getscore = 0;
-    private String str;
-    private LinearLayout click;
-    private JSONArray array;
-    private JSONObject myobj;
-
-    private int number1, number2, number3, number4;
-    private int money1, money2, money3, money4;
-    //    private float[] numbers = new float[12];
-//    private float[] money = new float[12];
-    private float[] numbers = new float[12];
-    private float[] money = new float[12];
     private BarChart mChart;
-    private String jsonStr;
-    private JSONObject obj2;
+
+    private SharePreferenceUtil sp;
+    private SimpleDateFormat sdf;
+    private TextView gray_bar;
+    private LinearLayout click;
     private JSONObject obj;
-    protected Typeface mTfLight;
+    private JSONObject myObj;
+
     private ImageView no_data_img;
     private ImageView forward;
-    private TextView gray_bar;
     private TextView no_data_txt;
     private LinearLayout timeSelect;
     private LinearLayout hide;
     private CustomPopupWindow mPop;
 
+    private float recommend_number[] = new float[12];
+    private float success_number[] = new float[12];
+    protected Typeface mTfLight;
+    private boolean flag;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_card_div__my__performance);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        setContentView(R.layout.activity_lobby_my_performance);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
+
         mChart = (BarChart) findViewById(R.id.chart1);
-        sp = new SharePreferenceUtil(this, "user");
-        sdf = new SimpleDateFormat("yyyy-MM-dd");
-        name= (TextView) findViewById(R.id.name);
+        sp = new SharePreferenceUtil(this,"user");
+        sdf = new SimpleDateFormat("yyyy-mm-dd");
+        name = (TextView) findViewById(R.id.name);
         name.setText(sp.getWorkerName());
         gray_bar = (TextView) findViewById(R.id.act_my_perf_gray_bar);
-        gray_bar.setText(Calendar.getInstance().get(Calendar.YEAR) + "年各月分期业务情况分析");
-        success_recommend = (TextView) findViewById(R.id.success_recommend);
+        gray_bar.setText(Calendar.getInstance().get(Calendar.YEAR) + "年各月办卡业务情况分析");
+        recommend_num = (TextView) findViewById(R.id.recommend_num);
         success_num = (TextView) findViewById(R.id.success_num);
         click = (LinearLayout) findViewById(R.id.click);
-        success_money = (TextView) findViewById(R.id.success_money);
         no_data_txt = (TextView) findViewById(R.id.act_kafenqi_my_perf_no_data_txt);
-        score_unchanged = (TextView) findViewById(R.id.score_unchanged);
+        not_exchanged_score = (TextView) findViewById(R.id.score_unchanged);
         no_data_img = (ImageView) findViewById(R.id.act_kafenqi_my_perf_no_data_img);
-        score_inall = (TextView) findViewById(R.id.score_inall);
-        score_exchanged = (TextView) findViewById(R.id.score_exchanged);
+        score = (TextView) findViewById(R.id.score_inall);
+        exchanged_score = (TextView) findViewById(R.id.score_exchanged);
         return_button = (ImageView) findViewById(R.id.return_button);
         hide = (LinearLayout) findViewById(R.id.hide);
         return_button.setOnClickListener(new View.OnClickListener() {
@@ -125,244 +107,183 @@ public class CardDiv_My_Performance extends Activity implements OnChartValueSele
                 finish();
             }
         });
-        worker_timeSelect = (TextView) findViewById(R.id.worker_timeSelect);
+        lobby_timeSelect = (TextView) findViewById(R.id.lobby_timeSelect);
         forward = (ImageView) findViewById(R.id.forward);
         timeSelect = (LinearLayout) findViewById(R.id.timeSelect);
         mPop = new CustomPopupWindow(this);
-        //时间范围选择下拉框
+
         timeSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //mPop.showAtLocation(CardDiv_My_Performance.this.findViewById(R.id.recommend_detail), Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
-                LinearLayout linear = (LinearLayout) findViewById(R.id.worker_dataSelect);
+                LinearLayout linear = (LinearLayout) findViewById(R.id.lobby_dataSelect);
                 mPop.showAsDropDown(linear);
-                Log.d("Dorise", "123");
-                //下拉框监听事件
-                mPop.setOnItemClickListener(new CustomPopupWindow.OnItemClickListener() {
 
+                mPop.setOnItemClickListener(new CustomPopupWindow.OnItemClickListener() {
+                    @Override
                     public void setOnItemClick(View v) {
-                        Log.d("Dorise", "456");
                         Calendar ca = Calendar.getInstance();
                         ca.setTime(new Date());
-                        switch (v.getId()) {
-
+                        switch (v.getId()){
                             case R.id.week:
-
-                                worker_timeSelect.setText("最近一周");
+                                lobby_timeSelect.setText("最近一周");
                                 ca.add(Calendar.DAY_OF_MONTH, -7);
                                 setText("one_week");
                                 mPop.dismiss();
                                 break;
+
                             case R.id.month:
-                                worker_timeSelect.setText("最近一个月");
+                                lobby_timeSelect.setText("最近一个月");
                                 ca.add(Calendar.MONTH, -1);
                                 setText("one_month");
                                 mPop.dismiss();
                                 break;
+
                             case R.id.three_month:
-                                worker_timeSelect.setText("最近三个月");
+                                lobby_timeSelect.setText("最近三个月");
                                 ca.add(Calendar.MONTH, -3);
                                 setText("three_month");
                                 mPop.dismiss();
                                 break;
+
                             case R.id.year:
-                                worker_timeSelect.setText("最近一年");
+                                lobby_timeSelect.setText("最近一年");
                                 ca.add(Calendar.YEAR, -1);
                                 setText("one_year");
                                 mPop.dismiss();
                                 break;
+
                             default:
                                 mPop.dismiss();
                                 break;
                         }
-                        beginTime = sdf.format(ca.getTime());
-
                     }
                 });
             }
         });
 
-
-
-        /*worker_timeSelect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(CardDiv_My_Performance.this);
-                builder.setTitle("请选择时间范围");
-                final String[] timeScope = {"最近一周", "最近一个月", "最近三个月", "最近一年"};
-                builder.setItems(timeScope, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        timeSelect = timeScope[i];
-                        worker_timeSelect.setText(timeSelect);
-                       //得到一个Calendar的实例
-                        ca.setTime(new Date());//设置时间为当前时间
-                        endTime = sdf.format(ca.getTime());
-                        System.out.println("0当前时间endTime：" + endTime);
-                        if (timeSelect.equals("最近一周")) {
-                            ca.add(Calendar.DAY_OF_MONTH, -7);
-                            setText("one_week");
-                        } else if (timeSelect.equals("最近一个月")) {
-                            ca.add(Calendar.MONTH, -1);
-                            setText("one_month");
-                        } else if (timeSelect.equals("最近三个月")) {
-                            ca.add(Calendar.MONTH, -3);
-                            setText("three_month");
-                        } else if (timeSelect.equals("最近一年")) {
-                            ca.add(Calendar.YEAR, -1);
-                            setText("one_year");
-                        }
-                        beginTime = sdf.format(ca.getTime());
-
-                        //在一个新线程里从后台读取业绩   后台返回全部时段的业绩  根据用户的选择进行显示
-
-                    }
-
-                });
-                builder.show();
-            }
-        });*/
-
-
-        new Thread() {
-
+        new Thread(){
             @Override
             public void run() {
                 Message msg = handler.obtainMessage();
-                if (ConnectUtil.isNetworkAvailable(CardDiv_My_Performance.this)) {
+                if(ConnectUtil.isNetworkAvailable(LobbyPerformance.this))
+                {
                     super.run();
+                    //要向后台传送的参数“account”
                     PostParameter[] param = new PostParameter[1];
                     param[0] = new PostParameter("account", sp.getAccount());
-                    String jsonStr = ConnectUtil.httpRequest(ConnectUtil.InstallmentWorkerMyPerformance, param, "POST");
+                    //获取向后台发送消息后返回的数据集！！！
+                    String jsonStr = ConnectUtil.httpRequest(ConnectUtil.LobbyMyPerformance, param, "POST");
 
-                    if (("").equals(jsonStr) || jsonStr == null) {
+                    if(("").equals(jsonStr) || jsonStr == null)
+                    {
                         msg.what = 2;
-                        msg.obj = "连接服务器失败";
-
+                        msg.obj = "网络连接失败";
                     } else {
                         msg.what = 0;
                         msg.obj = jsonStr;
                     }
                 } else {
-                    //网络连接不可用
                     msg.what = 1;
                     msg.obj = "网络连接错误，请检查您的网络连接";
                 }
                 handler.sendMessage(msg);
+
             }
         }.start();
         configChart();
     }
 
-    Handler handler = new Handler() {
+
+
+
+    Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            if (msg.what == 0) {
-                String str = (String) msg.obj;
-                try {
+            if(msg.what == 0){
+                String str = (String)msg.obj;
+                try{
                     obj = new JSONObject(str);
-                    if (obj.getString("status").equals("true")) {
+                    if(obj.getString("status").equals("true"))
+                    {
                         setText("one_week");
-
-                        Log.d("Dadsada", (String) msg.obj);
                         flag = false;
                         //该jsonObject用于呈现图表中各月的业务情况
                         JSONObject myobj = obj.getJSONObject("this_year");
-                        //图表中各月的纵坐标数组
-                        for (int i = 0; i < 12; i++) {
-                            String k = (i + 1) + "";
-                            numbers[i] = (float) myobj.getJSONObject("" + (i + 1)).getDouble("number");
-                            money[i] = (float) myobj.getJSONObject("" + (i + 1)).getDouble("money");
+                        for(int i = 0; i < 12; i++)
+                        {
+                            recommend_number[i] = (float)myobj.getJSONObject("" + (i+1)).getDouble("recommend_num");
+                            success_number[i] = (float)myobj.getJSONObject("" + (i+1)).getDouble("success_num");
 
-                            if (numbers[i] > 0) {
+                            if(recommend_number[i] > 0)
+                            {
                                 flag = true;
                             }
-                            Log.d("aaaaa", numbers[i] + "");
-                            Log.d("aaaaa", money[i] + "");
-
                         }
-                        //          obj2 = obj.getJSONObject("this_year");
-
-
-                        if (!flag) {
-                          //  gray_bar.setVisibility(View.GONE);
-                            //chart.setVisibility(View.GONE);
-
+                        if(!flag)
+                        {
                             mChart.setVisibility(View.GONE);
-
                             no_data_img.setVisibility(View.VISIBLE);
                             no_data_txt.setVisibility(View.VISIBLE);
-                            Toast.makeText(CardDiv_My_Performance.this, "还没有业绩信息~", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LobbyPerformance.this, "还没有业绩信息", Toast.LENGTH_SHORT).show();
                         } else {
                             initChartDatas();
+                            mChart.setVisibility(View.VISIBLE);
                             no_data_img.setVisibility(View.GONE);
                             no_data_txt.setVisibility(View.GONE);
-                            mChart.setVisibility(View.VISIBLE);
-                         //   gray_bar.setVisibility(View.VISIBLE);
-
                         }
 
                     } else {
-                        Toast.makeText(CardDiv_My_Performance.this, obj.getString("message"), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LobbyPerformance.this, obj.getString("message"), Toast.LENGTH_SHORT).show();
                     }
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             } else {
-                Toast.makeText(CardDiv_My_Performance.this, msg.obj.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(LobbyPerformance.this, msg.obj.toString(), Toast.LENGTH_SHORT).show();
             }
-
         }
     };
 
-    @Override
-    public void onValueSelected(Entry e, Highlight h) {
-
-    }
-
-    @Override
-    public void onNothingSelected() {
-
-
-    }
-
-    private void setText(final String select) {
+    //从接口获取各变量的数据，并显示在textview上
+    private void setText(final String select){
         try {
-            if (ConnectUtil.isNetworkAvailable(CardDiv_My_Performance.this)) {
-
-                myobj = obj.getJSONObject(select);
-
-                success_recommend.setText(myobj.getString("recommend_num") + "笔");
-                if (!myobj.getString("recommend_num").equals("0")) {
+            if(ConnectUtil.isNetworkAvailable(LobbyPerformance.this))
+            {
+                myObj = obj.getJSONObject(select);
+                recommend_num.setText(myObj.getString("recommend_num") + "笔");
+                if(!myObj.getString("recommend_num").equals("0"))
+                {
                     click.setOnClickListener(new View.OnClickListener() {
                         @Override
-                        public void onClick(View view) {
-                            Intent intent = new Intent(CardDiv_My_Performance.this, CardDiv_My_Recommend_List.class);
+                        public void onClick(View v) {
+                            Intent intent = new Intent(LobbyPerformance.this, Lobby_Recommend_List.class);
                             intent.putExtra("scope", select);
                             startActivity(intent);
                         }
                     });
                     forward.setVisibility(View.VISIBLE);
-                } else {
+                } else{
                     click.setOnClickListener(null);
                     forward.setVisibility(View.INVISIBLE);
                 }
-                Log.d("Listener显示", myobj.getString("recommend_num"));
-                success_num.setText(myobj.getString("success_num") + "笔");
-                success_money.setText(myobj.getString("success_money") + "万");
-                score_inall.setText(myobj.getString("score"));
-                score_exchanged.setText(myobj.getString("exchange_score"));
-                score_unchanged.setText(myobj.getString("not_exchange_score"));
-                Log.d("积分数", myobj.getString("score"));
-                Log.d("累计兑换积分数", myobj.getString("exchange_score"));
-                Log.d("未对换积分数", myobj.getString("not_exchange_score"));
+                Log.e("LobbyPerfomance", myObj.getString("success_num"));
+                Log.e("LobbyPerfomance", myObj.getString("score"));
+                Log.e("LobbyPerfomance", myObj.getString("exchange_score"));
+                Log.e("LobbyPerfomance", myObj.getString("not_exchange_score"));
+                success_num.setText(myObj.getString("success_num") + "笔");
+                score.setText(myObj.getString("score"));
+                exchanged_score.setText(myObj.getString("exchange_score"));
+                not_exchanged_score.setText(myObj.getString("not_exchange_score"));
+                Log.d("积分数", myObj.getString("score"));
+                Log.d("累计兑换积分数", myObj.getString("exchange_score"));
+                Log.d("未兑换积分数", myObj.getString("not_exchange_score"));
             } else {
-                Toast.makeText(this, "网络连接失败", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"网络连接失败",Toast.LENGTH_SHORT).show();
             }
-        } catch (JSONException e) {
+            } catch (JSONException e) {
             e.printStackTrace();
-            Log.d("显示错误了", (String) success_num.getText());
         }
 
     }
@@ -384,48 +305,48 @@ public class CardDiv_My_Performance extends Activity implements OnChartValueSele
         for (int i = startYear; i < endYear; i++) {
             switch (i) {
                 case 1:
-                    yVals1.add(new BarEntry(i, money[i - 1]));
-                    yVals2.add(new BarEntry(i, numbers[i - 1]));
+                    yVals1.add(new BarEntry(i, recommend_number[i - 1]));
+                    yVals2.add(new BarEntry(i, success_number[i - 1]));
                     break;
                 case 2:
-                    yVals1.add(new BarEntry(i, money[i - 1]));
-                    yVals2.add(new BarEntry(i, numbers[i - 1]));
+                    yVals1.add(new BarEntry(i, recommend_number[i - 1]));
+                    yVals2.add(new BarEntry(i, success_number[i - 1]));
                     break;
                 case 3:
-                    yVals1.add(new BarEntry(i, money[i - 1]));
-                    yVals2.add(new BarEntry(i, numbers[i - 1]));
+                    yVals1.add(new BarEntry(i, recommend_number[i - 1]));
+                    yVals2.add(new BarEntry(i, success_number[i - 1]));
                     break;
                 case 4:
-                    yVals1.add(new BarEntry(i, money[i - 1]));
-                    yVals2.add(new BarEntry(i, numbers[i - 1]));
+                    yVals1.add(new BarEntry(i, recommend_number[i - 1]));
+                    yVals2.add(new BarEntry(i, success_number[i - 1]));
                     break;
                 case 5:
-                    yVals1.add(new BarEntry(i, money[i - 1]));
-                    yVals2.add(new BarEntry(i, numbers[i - 1]));
+                    yVals1.add(new BarEntry(i, recommend_number[i - 1]));
+                    yVals2.add(new BarEntry(i, success_number[i - 1]));
                     break;
                 case 6:
-                    yVals1.add(new BarEntry(i, money[i - 1]));
-                    yVals2.add(new BarEntry(i, numbers[i - 1]));
+                    yVals1.add(new BarEntry(i, recommend_number[i - 1]));
+                    yVals2.add(new BarEntry(i, success_number[i - 1]));
                     break;
                 case 7:
-                    yVals1.add(new BarEntry(i, money[i - 1]));
-                    yVals2.add(new BarEntry(i, numbers[i - 1]));
+                    yVals1.add(new BarEntry(i, recommend_number[i - 1]));
+                    yVals2.add(new BarEntry(i, success_number[i - 1]));
                     break;
                 case 8:
-                    yVals1.add(new BarEntry(i, money[i - 1]));
-                    yVals2.add(new BarEntry(i, numbers[i - 1]));
+                    yVals1.add(new BarEntry(i, recommend_number[i - 1]));
+                    yVals2.add(new BarEntry(i, success_number[i - 1]));
                     break;
                 case 9:
-                    yVals1.add(new BarEntry(i, money[i - 1]));
-                    yVals2.add(new BarEntry(i, numbers[i - 1]));
+                    yVals1.add(new BarEntry(i, recommend_number[i - 1]));
+                    yVals2.add(new BarEntry(i, success_number[i - 1]));
                     break;
                 case 10:
-                    yVals1.add(new BarEntry(i, money[i - 1]));
-                    yVals2.add(new BarEntry(i, numbers[i - 1]));
+                    yVals1.add(new BarEntry(i, recommend_number[i - 1]));
+                    yVals2.add(new BarEntry(i, success_number[i - 1]));
                     break;
                 case 11:
-                    yVals1.add(new BarEntry(i, money[i - 1]));
-                    yVals2.add(new BarEntry(i, numbers[i - 1]));
+                    yVals1.add(new BarEntry(i, recommend_number[i - 1]));
+                    yVals2.add(new BarEntry(i, success_number[i - 1]));
                     break;
                 default:
                     yVals1.add(new BarEntry(i, (float) 0.0000));
@@ -476,7 +397,6 @@ public class CardDiv_My_Performance extends Activity implements OnChartValueSele
         mChart.invalidate();
 
     }
-
 
     private void configChart() {
         MyMarkerView mv = new MyMarkerView(this, R.layout.custom_marker_view);
@@ -536,38 +456,13 @@ public class CardDiv_My_Performance extends Activity implements OnChartValueSele
     }
 
 
+    @Override
+    public void onValueSelected(Entry e, Highlight h) {
 
-
-
-
-
-
-
-/*
-
-    timeSelect = timeScope[i];
-    worker_timeSelect.setText(timeSelect);
-    //得到一个Calendar的实例
-    ca.setTime(new Date());//设置时间为当前时间
-    endTime = sdf.format(ca.getTime());
-    System.out.println("0当前时间endTime：" + endTime);
-    if (timeSelect.equals("最近一周")) {
-        ca.add(Calendar.DAY_OF_MONTH, -7);
-    } else if (timeSelect.equals("最近一个月")) {
-        ca.add(Calendar.MONTH, -1);
-        setText("one_month");
-    } else if (timeSelect.equals("最近三个月")) {
-        ca.add(Calendar.MONTH, -3);
-        setText("three_month");
-    } else if (timeSelect.equals("最近一年")) {
-        ca.add(Calendar.YEAR, -1);
-        setText("one_year");
     }
-    beginTime = sdf.format(ca.getTime());
 
+    @Override
+    public void onNothingSelected() {
 
-
-*/
-
-
+    }
 }

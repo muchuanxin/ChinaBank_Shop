@@ -61,11 +61,42 @@ public class SharePreferenceUtil {
 		editor.putString("company", company);
 		editor.commit();
 	}
-
 	public String getCompany()
 	{
 		return sp.getString("company", "");
 	}
+
+
+	//大堂助理方法
+	public void setErji_Name(String erji_name)
+    {
+	    editor.putString("erji_name", erji_name);
+	    editor.commit();
+    }
+	public String getErji_Name() { return sp.getString("erji_name", ""); }
+
+    public void setErji_Num(String erji_num)
+    {
+        editor.putString("erji_num", erji_num);
+        editor.commit();
+    }
+    public String getErji_Num() { return sp.getString("erji_num", ""); }
+
+	public void setSiji_Name(String siji_name)
+    {
+        editor.putString("siji_name", siji_name);
+        editor.commit();
+    }
+    public String getSiji_Name() { return sp.getString("siji_name", ""); }
+
+    public void setSiji_Num(String siji_num)
+    {
+        editor.putString("siji_num", siji_num);
+        editor.commit();
+    }
+    public String getSiji_Num() { return sp.getString("siji_num", ""); }
+
+
 
 	public void setManagerName(String name)
 	{

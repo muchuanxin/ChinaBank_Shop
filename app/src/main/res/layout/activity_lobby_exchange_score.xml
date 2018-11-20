@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+
+    <RelativeLayout
+        android:id="@+id/myInfo_status_background"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/navigation_bg"/>
+
+    <RelativeLayout
+        android:id="@+id/myInfo_nav_background"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@id/myInfo_status_background"
+        android:background="@drawable/navigation_bg">
+
+        <RelativeLayout
+            android:id="@+id/my_info_back_btn"
+            android:layout_width="45dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/back_btn_bg" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:text="积分信息"
+            android:textColor="#fff"
+            android:textSize="22dp" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/my_account_row"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/myInfo_nav_background"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="60dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/label_shop_account"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="全部积分:"
+            android:textColor="#565656"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/all_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="9dp"
+
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/my_account_row"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/light_gray_line" />
+
+    <LinearLayout
+        android:id="@+id/my_psw_row"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/my_account_row"
+        android:layout_marginLeft="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/label_shop_psw"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="当前未兑换积分："
+            android:textColor="#565656"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/unexchange_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="9dp"
+
+
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/my_psw_row"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/light_gray_line" />
+
+    <LinearLayout
+        android:id="@+id/name_row"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/my_psw_row"
+        android:layout_marginLeft="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="当前已兑换积分："
+            android:textColor="#565656"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/exchanged_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="9dp"
+
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/name_row"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/light_gray_line" />
+
+    <Button
+        android:id="@+id/exchange"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/login_btn_bg"
+        android:gravity="center"
+        android:text="兑换积分"
+        android:textColor="#fff"
+        android:textSize="16dp" />
+
+</RelativeLayout>

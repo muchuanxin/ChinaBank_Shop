@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/lobby_recommend_bg_1">
+
+    <RelativeLayout
+        android:id="@+id/lobby_recommend_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/navigation_bg"/>
+
+    <RelativeLayout
+        android:id="@+id/lobby_recommend_navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@id/lobby_recommend_status_bar"
+        android:background="@drawable/navigation_bg">
+
+        <RelativeLayout
+            android:id="@+id/lobby_recommend_back_btn"
+            android:layout_width="45dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/return_button"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/back_btn_bg"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:textSize="22dp"
+            android:text="推荐办卡"/>
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/lobby_recommend_bg_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/lobby_recommend_bg_2">
+
+        <LinearLayout
+            android:id="@+id/lobby_recommend_linear"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="#000"
+                android:text="申请件编号："/>
+
+            <EditText
+                android:id="@+id/application_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="#000" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/submit_area"
+            android:layout_below="@+id/lobby_recommend_linear"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="40dp">
+
+            <ImageView
+                android:id="@+id/submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/lobby_recommend_submit"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="#fff"
+                android:textSize="15dp"
+                android:text="提交"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    
+
+
+</RelativeLayout>

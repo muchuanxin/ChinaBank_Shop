@@ -7,20 +7,20 @@
     tools:context="com.xd.aselab.chinabank_shop.activity.CardDiv.CardDiv_My_Performance">
 
     <RelativeLayout
-        android:id="@+id/worker_myPerfor_status_background"
+        android:id="@+id/lobby_myPerfor_status_background"
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:background="@drawable/navigation_bg"></RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/worker_myPer_nav_background"
+        android:id="@+id/lobby_myPer_nav_background"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_below="@id/worker_myPerfor_status_background"
+        android:layout_below="@id/lobby_myPerfor_status_background"
         android:background="@drawable/navigation_bg">
 
         <RelativeLayout
-            android:id="@+id/worker_performance_back_btn"
+            android:id="@+id/lobby_performance_back_btn"
             android:layout_width="45dp"
             android:layout_height="match_parent">
 
@@ -45,10 +45,10 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:id="@+id/worker_dataSelect"
+        android:id="@+id/lobby_dataSelect"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@id/worker_myPer_nav_background"
+        android:layout_below="@id/lobby_myPer_nav_background"
         android:orientation="horizontal">
 
         <TextView
@@ -65,7 +65,6 @@
         <TextView
             android:layout_width="1dp"
             android:layout_height="wrap_content"
-
             android:background="#9e9e9e" />
 
         <LinearLayout
@@ -80,7 +79,7 @@
 
 
             <TextView
-                android:id="@+id/worker_timeSelect"
+                android:id="@+id/lobby_timeSelect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -92,18 +91,16 @@
                 android:layout_width="10dp"
                 android:layout_height="5dp"
                 android:layout_gravity="center"
-
                 android:layout_marginLeft="5dp"
-                android:layout_toRightOf="@id/worker_timeSelect"
+                android:layout_toRightOf="@id/lobby_timeSelect"
                 android:src="@drawable/next" />
 
         </LinearLayout>
-
-
     </LinearLayout>
+
     <TextView
         android:id="@+id/tab"
-        android:layout_below="@id/worker_dataSelect"
+        android:layout_below="@id/lobby_dataSelect"
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:background="#e7e7e7"/>
@@ -124,24 +121,15 @@
             android:padding="1dp"
             android:textColor="#b50029"
             android:textSize="22dp"
-            android:layout_marginLeft="30px"
-            />
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="大堂助理"/>
+
         <LinearLayout
             android:id="@+id/recommend_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30px"
-                android:layout_marginTop="0px"
-                android:gravity="left"
-                android:text="推荐分期业务数量："
-                android:textColor="#2d2d2d"
-                android:textSize="16dp" />
 
             <LinearLayout
                 android:id="@+id/click"
@@ -150,10 +138,20 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/success_recommend"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="0px"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="left"
+                    android:text="推荐办卡数量："
+                    android:textColor="#2d2d2d"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/recommend_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
                     android:textColor="#2d2d2d"
                     android:textSize="16dp" />
 
@@ -162,10 +160,11 @@
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_marginLeft="50dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="5dp"
                     android:src="@drawable/arrow_right"
-                    android:visibility="invisible" />
+                    android:visibility="visible" />
             </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -174,13 +173,12 @@
             android:orientation="horizontal">
 
             <TextView
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30px"
-                android:layout_marginTop="5px"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="3dp"
                 android:gravity="left"
-                android:text="分期业务成功数量："
+                android:text="成功办卡数量："
                 android:textColor="#6b6b6b"
                 android:textSize="16dp" />
 
@@ -188,37 +186,10 @@
                 android:id="@+id/success_num"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5px"
-
+                android:layout_marginTop="3dp"
                 android:textColor="#6b6b6b"
                 android:textSize="16dp" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30px"
-
-                android:layout_marginTop="5px"
-                android:gravity="left"
-                android:text="分期业务成交金额："
-                android:textColor="#6b6b6b"
-                android:textSize="16dp" />
-
-            <TextView
-                android:id="@+id/success_money"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5px"
-                android:textColor="#6b6b6b"
-                android:textSize="16dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -230,9 +201,8 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30px"
-
-                android:layout_marginTop="5px"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="3dp"
                 android:gravity="left"
                 android:text="积分数："
                 android:textColor="#6b6b6b"
@@ -242,10 +212,10 @@
                 android:id="@+id/score_inall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30px"
-                android:layout_marginTop="5px"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="3dp"
                 android:textColor="#6b6b6b"
-
+                android:text="30"
                 android:textSize="16dp" />
         </LinearLayout>
 
@@ -258,8 +228,8 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30px"
-                android:layout_marginTop="5px"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="3dp"
                 android:text="累计兑换的积分数："
                 android:textColor="#6b6b6b"
                 android:textSize="16dp" />
@@ -268,8 +238,8 @@
                 android:id="@+id/score_exchanged"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30px"
-                android:layout_marginTop="5px"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="3dp"
                 android:gravity="left"
                 android:textColor="#6b6b6b"
                 android:textSize="16dp" />
@@ -283,8 +253,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30px"
-                android:layout_marginTop="5px"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="3dp"
                 android:gravity="left"
                 android:text="累计未兑换的积分数："
                 android:textColor="#6b6b6b"
@@ -294,8 +264,8 @@
                 android:id="@+id/score_unchanged"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30px"
-                android:layout_marginTop="5px"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="3dp"
                 android:textColor="#6b6b6b"
                 android:textSize="16dp" />
         </LinearLayout>
@@ -329,18 +299,15 @@
                 android:layout_height="30dp"
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical"
-
-
                 android:textColor="#3A3A3A"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:text="2018年各月办卡业务情况分析"/>
 
         </LinearLayout>
 
 
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/chart1"
-
-
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="25dp"
@@ -364,4 +331,5 @@
             android:textSize="14dp"
             android:visibility="gone" />
     </LinearLayout>
+
 </RelativeLayout>

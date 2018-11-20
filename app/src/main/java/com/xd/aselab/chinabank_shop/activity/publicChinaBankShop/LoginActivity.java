@@ -31,10 +31,13 @@ import com.umeng.analytics.MobclickAgent;
 import com.xd.aselab.chinabank_shop.R;
 import com.xd.aselab.chinabank_shop.Vos.AccountTypeVo;
 import com.xd.aselab.chinabank_shop.Vos.CardDivInfo;
+import com.xd.aselab.chinabank_shop.Vos.Lobby;
+import com.xd.aselab.chinabank_shop.Vos.Parking;
 import com.xd.aselab.chinabank_shop.Vos.Personal_Loan;
 import com.xd.aselab.chinabank_shop.Vos.Worker;
 import com.xd.aselab.chinabank_shop.activity.CardDiv.*;
 import com.xd.aselab.chinabank_shop.activity.personalLoan.Personal_My_Main_Page;
+import com.xd.aselab.chinabank_shop.activity.Lobby.LobbyMainPageActivity;
 import com.xd.aselab.chinabank_shop.activity.worker.RegisterClerkActivity;
 import com.xd.aselab.chinabank_shop.activity.shop.ShopMainPageActivity;
 import com.xd.aselab.chinabank_shop.activity.shop.ShopRegisterActivity;
@@ -77,6 +80,8 @@ public class LoginActivity extends AppCompatActivity {
     private ImageView account_delete;
     private ImageView psw_delete;
     private Personal_Loan loan;
+    private Parking parking;
+    private Lobby lobby;
 
     private Handler handler = new Handler() {
 
@@ -87,8 +92,10 @@ public class LoginActivity extends AppCompatActivity {
             String message = "", reCode = "";
             switch (msg.what) {
                 case 1: {
+                    //得到的result就是接口文档里的json键值对
                     JSONObject result = (JSONObject) msg.obj;
                     try {
+                        //获取用户是否成功登录
                         reCode = result.getString("status");
                         if (result.has("message")){
                             message = result.getString("message");
@@ -98,6 +105,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
 
                     if (reCode.equalsIgnoreCase("true")) {
+                        //实现记住用户名密码功能
                         sp.setAccount(account);
                         sp.setPassword(password);
                         sp.setIsLogin(true);
@@ -178,6 +186,38 @@ public class LoginActivity extends AppCompatActivity {
                                 initWorker_3Info();
                                 gotoWorker_3MainActivity();
                                 //worker_type=3代表个人消贷
+                            } else if(userType.equals(("worker_4"))){
+                                //worker_type=4代表车位
+                                parking = new Parking();
+                                parking.setParkingAccount((result.getString(("account"))));
+                                parking.setParkingName(result.getString(("name")));
+                                parking.setParkingTel(result.getString("telephone"));
+
+
+                            } else if(userType.equals(("worker_5"))){
+                                //worker_type=5代表旅游
+
+                            } else if(userType.equals(("worker_6"))){
+                                //worker_type=6代表家装
+
+                            } else if(userType.equals(("worker_7"))){
+                                //worker_type=7代表大堂助理
+                                lobby = new Lobby();
+
+                                lobby.setLobbyAccount(result.getString("account"));
+                                lobby.setLobbyName(result.getString("workerName"));
+                                lobby.setLobbyTel(result.getString("workerTele"));
+                                lobby.setWorkerType(result.getString("type"));
+                                lobby.setSiji_num(result.getString("siji_num"));
+                                lobby.setSiji_name(result.getString("siji_name"));
+                                lobby.setErji_num(result.getString("erji_num"));
+                                lobby.setErji_name(result.getString("erji_name"));
+                                lobby.setHead_image(result.getString("head_image"));
+                                initWorker_7Info();
+                                gotoWorker_7MainActivity();
+                            } else if(userType.equals(("worker_8"))){
+                                //worker_type=8代表特殊商户
+
                             }
 
 
@@ -285,8 +325,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         //透明状态栏
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
 
         et_account = (EditText) findViewById(R.id.login_accountText);
         et_password = (EditText) findViewById(R.id.login_passwdText);
@@ -316,7 +357,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
+        //当账户名或密码已被删除为空时，右侧的清除标志会消失
         et_account.addTextChangedListener(new TextWatcher() {
 
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -434,6 +475,12 @@ public class LoginActivity extends AppCompatActivity {
             getAccountType(scanResult);
         }
 
+    }
+
+    private void gotoWorker_7MainActivity() {
+        Intent intent = new Intent();
+        intent.setClass(LoginActivity.this, LobbyMainPageActivity.class);
+        startActivity(intent);
     }
 
     private void gotoShopMainActivity() {
@@ -565,6 +612,20 @@ public class LoginActivity extends AppCompatActivity {
         sp.setUserType("worker_3");
     }
 
+    protected void initWorker_7Info() {
+        sp.setAccount(lobby.getLobbyAccount());
+        sp.setWorkerName(lobby.getLobbyName());
+        sp.setWorkerTel(lobby.getLobbyTel());
+        sp.setUserType(lobby.getWorkerType());
+        sp.setTelAccount(lobby.getLobbyTel());
+        sp.setSiji_Name(lobby.getSiji_name());
+        sp.setSiji_Num(lobby.getSiji_num());
+        sp.setErji_Name(lobby.getErji_name());
+        sp.setErji_Num(lobby.getErji_num());
+        sp.setHead_image(lobby.getHead_image());
+        sp.setUserType("worker_7");
+    }
+
     protected void initWorkerInfo() {
         sp.setAccount(worker.getWorkerAccount());
         sp.setHead_image(worker.getHead_image());
@@ -622,13 +683,15 @@ public class LoginActivity extends AppCompatActivity {
                     public void run() {
                         Message message = new Message();
                         String url = "";
+                        //如果该页面联网
                         if (ConnectUtil.isNetworkAvailable(getApplicationContext())) {
                             PostParameter[] postParameters=new PostParameter[2];
 
                             url = ConnectUtil.USER_LOGIN;
-                            //postParameters = ;
+                            //postParameters用于指定要向服务器索要值的关键字。
                             postParameters[0] = new PostParameter("account", account);
                             postParameters[1] = new PostParameter("password", Encode.getEncode("MD5", password));
+                            //从服务器上获取json字符串然后再转换为json对象。从url地址进行网络通信，获取关键字为account和password所对应的值，通信方式为post。
                             String jsonStr = ConnectUtil.httpRequest(url, postParameters, ConnectUtil.POST);
                             Log.e("Dorise-----", "" + jsonStr);
                             if (jsonStr == null || jsonStr.equals("")) {

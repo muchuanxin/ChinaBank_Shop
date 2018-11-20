@@ -140,11 +140,11 @@
             <EditText
                 android:id="@+id/mun"
                 android:layout_width="190dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"
                 android:inputType="number"
-                android:maxLines="1"
                 android:maxLength="3"
+                android:maxLines="1"
                 android:textSize="16dp" />
         </TableRow>
 
@@ -161,7 +161,7 @@
             <EditText
                 android:id="@+id/purchase_id"
                 android:layout_width="190dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"
                 android:maxLength="45"
 
