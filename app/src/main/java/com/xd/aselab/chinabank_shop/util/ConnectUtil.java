@@ -48,11 +48,11 @@ public class ConnectUtil {
 
     //public final static String IP = "http://192.168.0.27:8080/";
 
-    public final static String IP = "http://www.juyunjinrongapp.com/";
+//    public final static String IP = "http://www.juyunjinrongapp.com/";
     //public final static String IP = "http://47.93.31.35/";
 //    public final static String IP = "http://192.168.0.73:8080/";
    //public final static String IP = "http://192.168.0.27:8080/";
-    //public final static String IP = "http://192.168.0.129/";
+    public final static String IP = "http://192.168.0.129/";
     //public final static String IP="http://10.170.13.113:8080/";
     //public final static String IP = "http://javaapp.gotoip2.com/";
     public final static String SERVER = IP + "ChinaBank/";
@@ -119,6 +119,13 @@ public class ConnectUtil {
     public static String GetHistoryChatLog = API_Chat+"GetHistoryChatLog";
     public static String GroupChat = API_Chat+"GroupChat";
     public static String GetGroupHistoryChatLog = API_Chat+"GetGroupHistoryChatLog";
+
+    // 虚拟4S销售
+    public static String VirtualInstallmentWorkerMyPerformance = API_HOST + "VirtualInstallmentWorkerMyPerformance";
+    public static String RecommendVirtualInstallment = API_HOST + "RecommendVirtualInstallment";
+    public static String VirtualInstallmentWorkerMyRecommendList = API_HOST + "VirtualInstallmentWorkerMyRecommendList";
+
+    public static String GetAllSecondaryBank= API_HOST + "GetAllSecondaryBank";
 
     //大堂助理
 

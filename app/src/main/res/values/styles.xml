@@ -62,7 +62,7 @@
         <!--标题下拉箭头-->
         <item name="picture.arrow_down.icon">@drawable/arrow_down</item>
         <!--标题上拉箭头-->
-        <item name="picture.arrow_up.icon">@drawable/arrow_up</item>
+        <!--<item name="picture.arrow_up.icon">@drawable/arrow_up</item>-->
         <!--标题文字颜色-->
         <item name="picture.title.textColor">@color/white</item>
         <!--标题栏右边文字-->
@@ -102,6 +102,10 @@
         <!--裁剪页面标题文字颜色-->
         <item name="picture.crop.title.color">@color/white</item>
         <!--相册文件夹列表选中图标-->
-        <item name="picture.folder_checked_dot">@drawable/orange_oval</item>
+        <!--<item name="picture.folder_checked_dot">@drawable/orange_oval</item>-->
     </style>
+
+    <style name="AppTheme.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

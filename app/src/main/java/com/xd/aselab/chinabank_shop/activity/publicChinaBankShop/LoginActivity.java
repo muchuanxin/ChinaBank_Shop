@@ -34,8 +34,10 @@ import com.xd.aselab.chinabank_shop.Vos.CardDivInfo;
 import com.xd.aselab.chinabank_shop.Vos.Lobby;
 import com.xd.aselab.chinabank_shop.Vos.Parking;
 import com.xd.aselab.chinabank_shop.Vos.Personal_Loan;
+import com.xd.aselab.chinabank_shop.Vos.VirtualSales;
 import com.xd.aselab.chinabank_shop.Vos.Worker;
 import com.xd.aselab.chinabank_shop.activity.CardDiv.*;
+import com.xd.aselab.chinabank_shop.activity.VirtualSales.VirtualSalesMainActivity;
 import com.xd.aselab.chinabank_shop.activity.personalLoan.Personal_My_Main_Page;
 import com.xd.aselab.chinabank_shop.activity.Lobby.LobbyMainPageActivity;
 import com.xd.aselab.chinabank_shop.activity.worker.RegisterClerkActivity;
@@ -82,6 +84,7 @@ public class LoginActivity extends AppCompatActivity {
     private Personal_Loan loan;
     private Parking parking;
     private Lobby lobby;
+    private VirtualSales virtualSales;
 
     private Handler handler = new Handler() {
 
@@ -218,6 +221,19 @@ public class LoginActivity extends AppCompatActivity {
                             } else if(userType.equals(("worker_8"))){
                                 //worker_type=8代表特殊商户
 
+                            }else if(userType.equals(("worker_9"))){
+                                // worker_type=9代表虚拟4S销售
+                                // VS类的初始化
+                                virtualSales = new VirtualSales();
+                                virtualSales.setAccount(result.getString("account"));
+                                virtualSales.setName(result.getString("workerName"));
+                                virtualSales.setTel(result.getString("workerTele"));
+                                virtualSales.setType(result.getString("type"));
+                                virtualSales.setHead_image(result.getString("head_image"));
+                                // SP的初始化
+                                initWorker_9Info();
+                                // 页面跳转
+                                gotoWorker_9MainActivity();
                             }
 
 
@@ -477,36 +493,49 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void gotoWorker_7MainActivity() {
-        Intent intent = new Intent();
-        intent.setClass(LoginActivity.this, LobbyMainPageActivity.class);
-        startActivity(intent);
-    }
-
     private void gotoShopMainActivity() {
         Intent intent1 = new Intent();
         intent1.setClass(LoginActivity.this, ShopMainPageActivity.class);
+        // 跳转之前把login页面关闭，保证首页两次退出可以关闭APP
+        finish();
         startActivity(intent1);
 
     }
 
-    private void gotoWorker_3MainActivity() {
-        Intent intent = new Intent();
-        intent.setClass(LoginActivity.this, Personal_My_Main_Page.class);
-        startActivity(intent);
+    private void gotoWorkerMainActivity() {
+        Intent intent2 = new Intent();
+        intent2.setClass(LoginActivity.this, ClerkMainPageActivity.class);
+        finish();
+        startActivity(intent2);
     }
 
     private void gotoWorker_2MainActivity() {
         Intent intent2 = new Intent();
 //        intent2.setClass(LoginActivity.this, CardDivMainPage.class);
         intent2.setClass(LoginActivity.this, com.xd.aselab.chinabank_shop.activity.CardDiv.MainActivity.class);
+        finish();
         startActivity(intent2);
     }
 
-    private void gotoWorkerMainActivity() {
-        Intent intent2 = new Intent();
-        intent2.setClass(LoginActivity.this, ClerkMainPageActivity.class);
-        startActivity(intent2);
+    private void gotoWorker_3MainActivity() {
+        Intent intent = new Intent();
+        intent.setClass(LoginActivity.this, Personal_My_Main_Page.class);
+        finish();
+        startActivity(intent);
+    }
+
+    private void gotoWorker_7MainActivity() {
+        Intent intent = new Intent();
+        intent.setClass(LoginActivity.this, LobbyMainPageActivity.class);
+        finish();
+        startActivity(intent);
+    }
+
+    private void gotoWorker_9MainActivity() {
+        Intent intent = new Intent();
+        intent.setClass(LoginActivity.this, VirtualSalesMainActivity.class);
+        finish();
+        startActivity(intent);
     }
 
     void getAccountType(final String str) {
@@ -641,13 +670,20 @@ public class LoginActivity extends AppCompatActivity {
         sp.setShopStreet(worker.getwShopStreet());
         sp.setShopOwnerName(worker.getwOwnerName());
         sp.setShopIndustryType(worker.getwShopIndutryType());
-
         sp.setCookie(worker.getwCookie());
         sp.setUserType("worker_1");
-
-
     }
 
+    // worker_9虚拟4S销售的相关SP数据初始化
+    protected void initWorker_9Info() {
+        sp.setAccount(virtualSales.getAccount());
+        sp.setWorkerName(virtualSales.getName());
+        sp.setWorkerTel(virtualSales.getTel());
+        sp.setUserType(virtualSales.getType());
+        sp.setTelAccount(virtualSales.getTel());
+        sp.setHead_image(virtualSales.getHead_image());
+        sp.setUserType("worker_9");
+    }
 
     private void initDatas() {
         netWorkUtil = new NetWorkUtil(LoginActivity.this);
@@ -791,3 +827,4 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 }
+
