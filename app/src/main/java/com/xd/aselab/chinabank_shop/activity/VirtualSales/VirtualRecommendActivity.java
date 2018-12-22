@@ -1,5 +1,6 @@
 package com.xd.aselab.chinabank_shop.activity.VirtualSales;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.Message;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -139,6 +141,8 @@ public class VirtualRecommendActivity extends AppCompatActivity {
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                hideKeyboard(name);
+                hideKeyboard(tel);
                 name_text = name.getText().toString().trim();
                 Tel_text = tel.getText().toString().trim();
                 if (name_text == null || name_text.equals("")) {
@@ -268,5 +272,11 @@ public class VirtualRecommendActivity extends AppCompatActivity {
             }
         }
     };
-
+    //用于返回界面隐藏软键盘
+    private void hideKeyboard(EditText editText) {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm != null) {
+            imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+        }
+    }
 }
