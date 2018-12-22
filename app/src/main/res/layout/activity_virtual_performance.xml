@@ -327,7 +327,7 @@
                 android:gravity="center_vertical"
                 android:textColor="#3A3A3A"
                 android:textSize="16dp"
-                android:text="2018年各月办卡业务情况分析"/>
+                android:text="2018年各月分期业务情况分析"/>
 
         </LinearLayout>
 

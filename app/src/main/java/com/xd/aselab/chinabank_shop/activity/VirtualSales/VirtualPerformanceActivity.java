@@ -91,7 +91,7 @@ public class VirtualPerformanceActivity extends AppCompatActivity  implements On
         name = (TextView) findViewById(R.id.name);
         name.setText("销售" + sp.getWorkerName());
         gray_bar = (TextView) findViewById(R.id.act_my_perf_gray_bar);
-        gray_bar.setText(Calendar.getInstance().get(Calendar.YEAR) + "年各月办卡业务情况分析");
+        gray_bar.setText(Calendar.getInstance().get(Calendar.YEAR) + "年各月分期业务情况分析");
         recommend_num = (TextView) findViewById(R.id.recommend_num);
         success_num = (TextView) findViewById(R.id.success_num);
         success_money = (TextView) findViewById(R.id.success_money);
