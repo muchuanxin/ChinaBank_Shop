@@ -1,6 +1,9 @@
 package com.xd.aselab.chinabank_shop.activity.VirtualSales.fragment;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,8 +16,11 @@ import android.widget.TextView;
 
 import com.xd.aselab.chinabank_shop.R;
 import com.xd.aselab.chinabank_shop.activity.VirtualSales.VirtualExchangeScoreActivity;
+import com.xd.aselab.chinabank_shop.activity.VirtualSales.VirtualMyInfoActivity;
 import com.xd.aselab.chinabank_shop.util.ImageLoader;
 import com.xd.aselab.chinabank_shop.util.SharePreferenceUtil;
+
+import java.io.FileNotFoundException;
 
 public class VirtualMeBasicFragment extends Fragment {
 
@@ -44,18 +50,17 @@ public class VirtualMeBasicFragment extends Fragment {
         headImage = (ImageView) root.findViewById(R.id.dafault_head);
         imageLoader = ImageLoader.getInstance();
         imageLoader.loadBitmap(getActivity(), sp.getHead_image(), headImage, R.drawable.final_head);
+        my_info_row = (LinearLayout) root.findViewById(R.id.myhead);
 
-        // 修改个人信息，用不上
-//        my_info_row = (LinearLayout) root.findViewById(R.id.myhead);
-//
-//        my_info_row.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent();
-//                intent.setClass(getActivity(), );
-//                startActivity(intent);
-//            }
-//        });
+        // 个人信息详情页
+        my_info_row.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), VirtualMyInfoActivity.class);
+                startActivityForResult(intent, 10);
+            }
+        });
 
         // 积分兑换相关设置
         exchange_score_row = (LinearLayout) root.findViewById(R.id.exchange_score_line);
@@ -79,5 +84,4 @@ public class VirtualMeBasicFragment extends Fragment {
 
         return root;
     }
-
 }

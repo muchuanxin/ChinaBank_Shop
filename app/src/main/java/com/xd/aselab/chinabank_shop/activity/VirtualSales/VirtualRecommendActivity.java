@@ -114,8 +114,10 @@ public class VirtualRecommendActivity extends AppCompatActivity {
         //简单的string数组适配器：样式res，数组
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(VirtualRecommendActivity.this,
                 android.R.layout.simple_spinner_item, spinnerItems);
+
         //下拉的样式res
-        spinnerAdapter.setDropDownViewResource(R.layout.virtual_recommend_spinner_item);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         //绑定 Adapter到控件
         typeChoose.setAdapter(spinnerAdapter);
         typeChoose.setSelection(0);

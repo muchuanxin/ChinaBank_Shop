@@ -68,8 +68,6 @@ public class VirtualSalesMainActivity extends AppCompatActivity {
 
     private SharePreferenceUtil spu;
     private long mExitTime;
-    private Handler handler;
-    private Set<String> groupSet = new HashSet<String>() ;
     public static boolean isForeground = false;
 
     @Override
@@ -196,6 +194,9 @@ public class VirtualSalesMainActivity extends AppCompatActivity {
         if (resultCode == Constants.INFO_TO_MAIN) {
             Log.e("www", "INFO_TO_MAIN");
             setTabSelection(0);
+        }
+        if(resultCode==Constants.EXIT_TO_LOGIN){
+            finish();
         }
     }
 

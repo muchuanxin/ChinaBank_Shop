@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xd.aselab.chinabank_shop"
-    android:versionCode="6"
-    android:versionName="3.0.0">
+    android:versionCode="7"
+    android:versionName="3.1.0">
 
     <permission
         android:name="${applicationId}.permission.JPUSH_MESSAGE"
@@ -45,7 +45,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         android:windowSoftInputMode="stateHidden|stateUnchanged">
-        <!-- <activity android:name=".activity.Lobby.fragment.LobbyMainFragment"></activity> -->
         <!--
         友盟数据
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
@@ -614,6 +613,30 @@
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
             android:name=".activity.VirtualSales.VirtualSalesMainActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.VirtualSales.VirtualSecureQuestionActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.VirtualSales.VirtualMyInfoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.VirtualSales.VirtualChangePasswordActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.VirtualSales.VirtualChangeTelActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="nosensor"
             android:theme="@style/AppTheme.NoActionBar"
