@@ -110,7 +110,7 @@ public class VirtualRecommendActivity extends AppCompatActivity {
         spinnerItems.add("车位分期");
         spinnerItems.add("家装分期");
         spinnerItems.add("旅游分期");
-        spinnerItems.add("优客分期");
+        spinnerItems.add("优客业务");
         //简单的string数组适配器：样式res，数组
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(VirtualRecommendActivity.this,
                 android.R.layout.simple_spinner_item, spinnerItems);
@@ -130,6 +130,7 @@ public class VirtualRecommendActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int pos, long id) {
+                Log.e("dardai_type", product_types.get(spinnerItems.get(pos)));
                 type_text = product_types.get(spinnerItems.get(pos));
             }
 
