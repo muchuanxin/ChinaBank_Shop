@@ -1,15 +1,10 @@
 package com.xd.aselab.chinabank_shop.activity.VirtualSales.fragment;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.PermissionChecker;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,10 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.xd.aselab.chinabank_shop.R;
+import com.xd.aselab.chinabank_shop.activity.publicChinaBankShop.ChinaBankBenefitNew;
 import com.xd.aselab.chinabank_shop.activity.VirtualSales.VirtualPerformanceActivity;
 import com.xd.aselab.chinabank_shop.activity.VirtualSales.VirtualRecommendActivity;
-import com.xd.aselab.chinabank_shop.activity.publicChinaBankShop.CBNetwork;
-import com.xd.aselab.chinabank_shop.activity.publicChinaBankShop.ChinaBankBenefit;
 import com.xd.aselab.chinabank_shop.fragment.ImageCycleView;
 import com.xd.aselab.chinabank_shop.util.ConnectUtil;
 import com.xd.aselab.chinabank_shop.util.ImageLoader;
@@ -40,6 +34,7 @@ import cn.jpush.android.api.JPushInterface;
 public class VirtualMainFragment extends Fragment {
     private LinearLayout myPerformance;
     private LinearLayout myRecommend;
+    private LinearLayout bankBenefit;
 
     private View root;
     private SharePreferenceUtil sp;
@@ -61,6 +56,7 @@ public class VirtualMainFragment extends Fragment {
 
         myPerformance = (LinearLayout) root.findViewById(R.id.my_performance);
         myRecommend = (LinearLayout) root.findViewById(R.id.my_recommend);
+        bankBenefit= (LinearLayout) root.findViewById(R.id.bank_benefit);
 
         // 我的绩效跳转
         myPerformance.setOnClickListener(new View.OnClickListener() {
@@ -111,14 +107,13 @@ public class VirtualMainFragment extends Fragment {
 //        });
 
         // 银行福利跳转
-        // 不需要，注掉
-//        bankBenefit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getActivity(), ChinaBankBenefit.class);
-//                startActivity(intent);
-//            }
-//        });
+        bankBenefit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ChinaBankBenefitNew.class);
+                startActivity(intent);
+            }
+        });
 
         JPushInterface.setAlias(getActivity(), 0, sp.getAccount());
 
