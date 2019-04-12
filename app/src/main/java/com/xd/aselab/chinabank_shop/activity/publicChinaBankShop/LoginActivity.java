@@ -265,36 +265,39 @@ public class LoginActivity extends AppCompatActivity {
                 case -1:
                     ToastCustom.makeToastCenter(getApplicationContext(), "网络连接失败");
                     break;
-                case 5:
-                    try {
-                        reCode = (String)msg.obj;
-                        if (reCode != null && !"{}".equals(reCode)) {
-                            JSONObject json = new JSONObject(reCode);
-                            String status = json.getString("status");
-                            if ("false".equals(status)) {
-                                Toast.makeText(LoginActivity.this, json.getString("message"), Toast.LENGTH_SHORT).show();
-                            } else if ("true".equals(status)) {
-                                String new_version = json.getString("version");
-                                if (new_version!=null && !"".equals(new_version)){
-                                    UpdateManager updateManager = UpdateManager.getUpdateManager();
-                                    updateManager.judgeAppUpdate(new_version,LoginActivity.this);
-                                }
-                                else {
-                                    Log.e("new_version","版本号为空串");
-                                }
-                            }
-                        }
-                        else if (reCode != null && "{}".equals(reCode)){
-                            Log.e("new_version","版本号为空null");
-                        }
-                        else {
-                            Log.e("connect","连接失败，未获取版本号");
-                        }
-                    }
-                    catch (Exception e){
-                        e.printStackTrace();
-                    }
-                    break;
+
+                //新版本更新提示
+//                case 5:
+//                    try {
+//                        reCode = (String)msg.obj;
+//                        if (reCode != null && !"{}".equals(reCode)) {
+//                            JSONObject json = new JSONObject(reCode);
+//                            String status = json.getString("status");
+//                            if ("false".equals(status)) {
+//                                Toast.makeText(LoginActivity.this, json.getString("message"), Toast.LENGTH_SHORT).show();
+//                            } else if ("true".equals(status)) {
+//                                String new_version = json.getString("version");
+//                                if (new_version!=null && !"".equals(new_version)){
+//                                    UpdateManager updateManager = UpdateManager.getUpdateManager();
+//                                    updateManager.judgeAppUpdate(new_version,LoginActivity.this);
+//                                }
+//                                else {
+//                                    Log.e("new_version","版本号为空串");
+//                                }
+//                            }
+//                        }
+//                        else if (reCode != null && "{}".equals(reCode)){
+//                            Log.e("new_version","版本号为空null");
+//                        }
+//                        else {
+//                            Log.e("connect","连接失败，未获取版本号");
+//                        }
+//                    }
+//                    catch (Exception e){
+//                        e.printStackTrace();
+//                    }
+//                    break;
+
                 default:
                     break;
 
