@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xd.aselab.chinabank_shop"
     android:versionCode="8"
-    android:versionName="3.1.1">
+    android:versionName="3.1.2">
 
     <permission
         android:name="${applicationId}.permission.JPUSH_MESSAGE"
@@ -45,6 +45,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         android:windowSoftInputMode="stateHidden|stateUnchanged">
+
         <!--
         友盟数据
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
@@ -646,7 +647,19 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="nosensor"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan|stateHidden" ></activity>
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.publicChinaBankShop.BenDiYouHuiActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.publicChinaBankShop.JinRongFuWuActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
     </application>
 
 </manifest>

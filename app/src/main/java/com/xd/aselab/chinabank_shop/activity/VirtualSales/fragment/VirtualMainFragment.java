@@ -15,9 +15,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.xd.aselab.chinabank_shop.R;
+import com.xd.aselab.chinabank_shop.activity.Lobby.Lobby_My_ExchangeScore;
+import com.xd.aselab.chinabank_shop.activity.publicChinaBankShop.BenDiYouHuiActivity;
 import com.xd.aselab.chinabank_shop.activity.publicChinaBankShop.ChinaBankBenefitNew;
 import com.xd.aselab.chinabank_shop.activity.VirtualSales.VirtualPerformanceActivity;
 import com.xd.aselab.chinabank_shop.activity.VirtualSales.VirtualRecommendActivity;
+import com.xd.aselab.chinabank_shop.activity.publicChinaBankShop.JinRongFuWuActivity;
 import com.xd.aselab.chinabank_shop.fragment.ImageCycleView;
 import com.xd.aselab.chinabank_shop.util.ConnectUtil;
 import com.xd.aselab.chinabank_shop.util.ImageLoader;
@@ -35,6 +38,8 @@ public class VirtualMainFragment extends Fragment {
     private LinearLayout myPerformance;
     private LinearLayout myRecommend;
     private LinearLayout bankBenefit;
+    private LinearLayout exchangeScore;
+    private LinearLayout economyService;
 
     private View root;
     private SharePreferenceUtil sp;
@@ -57,6 +62,8 @@ public class VirtualMainFragment extends Fragment {
         myPerformance = (LinearLayout) root.findViewById(R.id.my_performance);
         myRecommend = (LinearLayout) root.findViewById(R.id.my_recommend);
         bankBenefit= (LinearLayout) root.findViewById(R.id.bank_benefit);
+        exchangeScore = (LinearLayout) root.findViewById(R.id.exchange_score);
+        economyService = (LinearLayout) root.findViewById(R.id.economy_service);
 
         // 我的绩效跳转
         myPerformance.setOnClickListener(new View.OnClickListener() {
@@ -107,10 +114,34 @@ public class VirtualMainFragment extends Fragment {
 //        });
 
         // 银行福利跳转
+//        bankBenefit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getActivity(), ChinaBankBenefitNew.class);
+//                startActivity(intent);
+//            }
+//        });
+
         bankBenefit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ChinaBankBenefitNew.class);
+                Intent intent = new Intent(getActivity(), BenDiYouHuiActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        exchangeScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Lobby_My_ExchangeScore.class);
+                startActivity(intent);
+            }
+        });
+
+        economyService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), JinRongFuWuActivity.class);
                 startActivity(intent);
             }
         });

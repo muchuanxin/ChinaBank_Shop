@@ -20,10 +20,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.xd.aselab.chinabank_shop.R;
+import com.xd.aselab.chinabank_shop.activity.Lobby.Lobby_My_ExchangeScore;
 import com.xd.aselab.chinabank_shop.activity.Lobby.Lobby_Recommend_ApplyCard;
+import com.xd.aselab.chinabank_shop.activity.publicChinaBankShop.BenDiYouHuiActivity;
 import com.xd.aselab.chinabank_shop.activity.publicChinaBankShop.CBNetwork;
 import com.xd.aselab.chinabank_shop.activity.publicChinaBankShop.ChinaBankBenefit;
 import com.xd.aselab.chinabank_shop.activity.Lobby.LobbyPerformance;
+import com.xd.aselab.chinabank_shop.activity.publicChinaBankShop.JinRongFuWuActivity;
 import com.xd.aselab.chinabank_shop.fragment.ImageCycleView;
 import com.xd.aselab.chinabank_shop.util.ConnectUtil;
 import com.xd.aselab.chinabank_shop.util.ImageLoader;
@@ -42,6 +45,8 @@ public class LobbyMainFragment extends Fragment {
     private LinearLayout myRecommend;
     private LinearLayout myNetwork;
     private LinearLayout bankBenefit;
+    private LinearLayout exchangeScore;
+    private LinearLayout economyService;
 
     private View root;
     private SharePreferenceUtil sp;
@@ -65,6 +70,8 @@ public class LobbyMainFragment extends Fragment {
         myRecommend = (LinearLayout) root.findViewById(R.id.my_recommend);
         myNetwork = (LinearLayout) root.findViewById(R.id.my_network);
         bankBenefit = (LinearLayout) root.findViewById(R.id.bank_benefit);
+        exchangeScore = (LinearLayout) root.findViewById(R.id.exchange_score);
+        economyService = (LinearLayout) root.findViewById(R.id.economy_service);
 
         myPerformance.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,7 +121,23 @@ public class LobbyMainFragment extends Fragment {
         bankBenefit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ChinaBankBenefit.class);
+                Intent intent = new Intent(getActivity(), BenDiYouHuiActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        exchangeScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Lobby_My_ExchangeScore.class);
+                startActivity(intent);
+            }
+        });
+
+        economyService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), JinRongFuWuActivity.class);
                 startActivity(intent);
             }
         });

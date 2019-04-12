@@ -128,7 +128,7 @@ public class CardDivMainPage extends AppCompatActivity {
 
 
 
-        hotpoint= (LinearLayout)findViewById(R.id.hotpoint);
+        hotpoint= (LinearLayout)findViewById(R.id.my_recommend);
         hotpoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

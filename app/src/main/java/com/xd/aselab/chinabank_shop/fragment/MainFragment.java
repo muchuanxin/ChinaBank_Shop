@@ -23,13 +23,16 @@ import android.widget.Toast;
 
 
 import com.xd.aselab.chinabank_shop.R;
+import com.xd.aselab.chinabank_shop.activity.CardDiv.CardDivExchangeScoreActivity;
 import com.xd.aselab.chinabank_shop.activity.CardDiv.CardDivMainPage;
 import com.xd.aselab.chinabank_shop.activity.CardDiv.CardDivMyRecommend2;
 import com.xd.aselab.chinabank_shop.activity.CardDiv.CardDiv_My_Info;
 import com.xd.aselab.chinabank_shop.activity.CardDiv.CardDiv_My_Performance;
 import com.xd.aselab.chinabank_shop.activity.CardDiv.CardDiv_My_Recommend;
+import com.xd.aselab.chinabank_shop.activity.publicChinaBankShop.BenDiYouHuiActivity;
 import com.xd.aselab.chinabank_shop.activity.publicChinaBankShop.CBNetwork;
 import com.xd.aselab.chinabank_shop.activity.publicChinaBankShop.ChinaBankBenefit;
+import com.xd.aselab.chinabank_shop.activity.publicChinaBankShop.JinRongFuWuActivity;
 import com.xd.aselab.chinabank_shop.util.ConnectUtil;
 import com.xd.aselab.chinabank_shop.util.ImageLoader;
 import com.xd.aselab.chinabank_shop.util.PostParameter;
@@ -51,9 +54,11 @@ public class MainFragment extends Fragment {
     private ImageCycleView imageCycleView;
     private ImageCycleView.ImageCycleViewListener mAdCycleViewListener;
     private LinearLayout my_performance;
-    private LinearLayout hotpoint;
+    private LinearLayout my_recommend;
     private LinearLayout my_network;
     private LinearLayout bank_benefit;
+    private LinearLayout exchange_score;
+    private LinearLayout economy_service;
     private ImageView myinfo;
     private ImageCycleView cycleView;
     private ImageCycleView.ImageCycleViewListener cycleViewListener;
@@ -152,14 +157,15 @@ public class MainFragment extends Fragment {
         };
 
 
-        hotpoint = (LinearLayout) root.findViewById(R.id.hotpoint);
-        hotpoint.setOnClickListener(new View.OnClickListener() {
+        my_recommend = (LinearLayout) root.findViewById(R.id.my_recommend);
+        my_recommend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), CardDivMyRecommend2.class);
                 startActivity(intent);
             }
         });
+
         my_network = (LinearLayout) root.findViewById(R.id.my_network);
         my_network.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -187,11 +193,32 @@ public class MainFragment extends Fragment {
                 }
             }
         });
+
         bank_benefit = (LinearLayout) root.findViewById(R.id.bank_benefit);
         bank_benefit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ChinaBankBenefit.class);
+                Intent intent = new Intent(getActivity(), BenDiYouHuiActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        exchange_score = (LinearLayout) root.findViewById(R.id.exchange_score);
+        exchange_score.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), CardDivExchangeScoreActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        economy_service = (LinearLayout) root.findViewById(R.id.economy_service);
+        economy_service.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), JinRongFuWuActivity.class);
                 startActivity(intent);
             }
         });
