@@ -84,7 +84,7 @@ public class JinRongFuWuActivity extends AppCompatActivity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 //这里又加载了一次页面，注掉
-                //view.loadUrl(url);
+                view.loadUrl(url);
                 return true;
             }
 
