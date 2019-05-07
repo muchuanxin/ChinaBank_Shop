@@ -73,7 +73,8 @@ public class JinRongFuWuActivity extends AppCompatActivity {
 //        noString = generate6RandomNumber();
 
         try {
-            String url = "http://boc.superwx.cn/port/zgyh_20180820/supermarket.php";
+//            String url = "http://boc.superwx.cn/port/zgyh_20180820/supermarket.php";
+            String url = "https://mp.weixin.qq.com/mp/homepage?__biz=MjM5MDcxNzI3NA==&hid=3&sn=06116ab9045936d87a32ed8f4aad8707&scene=1&devicetype=android-28&version=27000435&lang=zh_CN&nettype=WIFI&ascene=7&session_us=gh_a4354339a89a&from=singlemessage&isappinstalled=0";
             webView.loadUrl(url);
         }catch (Exception e){
             e.printStackTrace();
