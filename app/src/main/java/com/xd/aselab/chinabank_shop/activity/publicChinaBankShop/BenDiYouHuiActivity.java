@@ -44,6 +44,17 @@ public class BenDiYouHuiActivity extends AppCompatActivity {
         //声明WebSettings子类
         WebSettings webSettings = webView.getSettings();
 
+//        webSettings.setBuiltInZoomControls(true);
+//        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+//        webSettings.setUseWideViewPort(true);
+//        webSettings.setLoadWithOverviewMode(true);
+//        webSettings.setSaveFormData(true);
+//        webSettings.setGeolocationEnabled(true);
+//        webSettings.setDomStorageEnabled(true);
+//
+//        webView.requestFocus();
+//        webView.setScrollBarStyle(0);
+
         //如果访问的页面中要与Javascript交互，则webview必须设置支持Javascript
         webSettings.setJavaScriptEnabled(true);
 
@@ -81,12 +92,12 @@ public class BenDiYouHuiActivity extends AppCompatActivity {
 
         //复写shouldOverrideUrlLoading()方法，使得打开网页时不调用系统浏览器， 而是在本WebView中显示
         webView.setWebViewClient(new WebViewClient(){
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                //这里又加载了一次页面，注掉
-                //view.loadUrl(url);
-                return true;
-            }
+//            @Override
+//            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+//                //这里又加载了一次页面，注掉
+//                view.loadUrl(url);
+//                return true;
+//            }
 
             //解决HTTPS图片不显示的问题
             @Override
