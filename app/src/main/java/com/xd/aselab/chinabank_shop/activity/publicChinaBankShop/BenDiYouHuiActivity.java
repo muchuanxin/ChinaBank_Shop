@@ -4,10 +4,12 @@ import android.net.http.SslError;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.webkit.SslErrorHandler;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -92,11 +94,12 @@ public class BenDiYouHuiActivity extends AppCompatActivity {
 
         //复写shouldOverrideUrlLoading()方法，使得打开网页时不调用系统浏览器， 而是在本WebView中显示
         webView.setWebViewClient(new WebViewClient(){
-            //该方法此处不必重写
+//            //该方法此处不必重写
 //            @Override
 //            public boolean shouldOverrideUrlLoading(WebView view, String url) {
 //                view.loadUrl(url);
 //                return true;
+//
 //            }
 
             //解决HTTPS图片不显示的问题
@@ -105,13 +108,30 @@ public class BenDiYouHuiActivity extends AppCompatActivity {
                 handler.proceed(); // 接受网站证书
             }
 
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                setTitle(String.valueOf(view.getTitle()));
+            }
+
         });
     }
+
+//    @Override
+//    public void onBackPressed() {
+//        if (webView.canGoBack())
+//            webView.goBack();
+//        else
+//            super.onBackPressed();
+//    }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK) && webView.canGoBack()) {
             webView.goBack();
+            Log.e("tag", "canGoBack");
             return true;
+        } else if ( keyCode == KeyEvent.KEYCODE_BACK ) {
+            finish();
         }
         return super.onKeyDown(keyCode, event);
     }
