@@ -48,7 +48,8 @@ public class ConnectUtil {
 
     //public final static String IP = "http://192.168.0.27:8080/";
 
-    public final static String IP = "http://www.juyunjinrongapp.com/";
+//    public final static String IP = "http://www.juyunjinrongapp.com/";
+    public final static String IP = "http://39.100.100.198:88/";
     //public final static String IP = "http://47.93.31.35/";
 //    public final static String IP = "http://192.168.0.73:8080/";
 //   public final static String IP = "http://192.168.0.27:8080/";
